@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Taizeen!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+
+
+    <div class="container">
+        <div class="main-content">
+            <div class="image-container">
+                <img src="images/Best-Beautiful-Images-For-Desktop-Nature.png" alt="Happy Birthday" id="birthdayImage" onerror="handleImageError()">
+                <div class="love-message" id="loveMessage">
+                    <h2>❤️ For My Beautiful Taizeen ❤️</h2>
+                    <p>My Dearest Taizeen,</p>
+                    <p>Every moment with you feels like a beautiful dream. Your smile brightens my world, and your love makes my heart complete. You are the most amazing person I've ever known, and I'm so lucky to have you in my life.</p>
+                    <p>On your special day, I want you to know how much you mean to me. You're not just my love, you're my best friend, my partner, and my everything. I cherish every moment we spend together and look forward to creating many more beautiful memories with you.</p>
+                    <p>Happy Birthday to the most beautiful soul I know! ❤️</p>
+                    <p>With all my love,</p>
+                    <p>Forever Yours</p>
+                </div>
+                <div class="image-placeholder" id="imagePlaceholder" style="display: none;">
+                    <i class="fas fa-image"></i>
+                    <p>Image not loading. Please check the image path.</p>
+                    <p>Make sure your image is in the 'images' folder.</p>
+                </div>
+            </div>
+
+            <div class="content">
+                <h1>🎉 Happy Birthday Taizeen! 🎉</h1>
+
+                <div class="controls">
+                    <button onclick="playMusic()" id="playButton">
+                        <i class="fas fa-play"></i> Play Birthday Song 🎶
+                    </button>
+                    <button onclick="pauseMusic()" id="pauseButton" style="display: none;">
+                        <i class="fas fa-pause"></i> Pause Music
+                    </button>
+                    <button onclick="showLoveMessage()" id="loveButton">
+                        <i class="fas fa-heart"></i> Special Message
+                    </button>
+                </div>
+
+                <audio id="birthdayAudio" loop>
+                    <source src="audio/happy-birthday.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button onclick="showOipImage()" id="showOipButton">
+                <i class="fas fa-image"></i> Show Special Image
+            </button>
+            <div class="footer-image-container">
+                <button onclick="showSpecialMessage()" class="special-message-btn" id="specialMessageBtn">
+                    <i class="fas fa-comment"></i> Show Special Message
+                </button>
+                <img src="images/OIP.jpg" alt="Special Image" class="footer-image" id="oipImage">
+                <div class="oip-message" id="oipMessage">
+                    <h2>💙 Our Special Moments 💙</h2>
+                    <p>Every time I see this image, it reminds me of our beautiful journey together.</p>
+                    <p>From the first moment we met to every special memory we've created, you've made my life complete.</p>
+                    <p>This picture captures just one of the many moments that make me fall in love with you all over again.</p>
+                    <p>You're my favorite hello and my hardest goodbye. 💕</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='nextpage.html'" class="next-page-button">
+                <i class="fas fa-arrow-right"></i> Next Page
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .next-page-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            display: block;
+            font-size: 1.1em;
+        }
+
+            .next-page-button:hover {
+                background-color: #ff4da6;
+                transform: scale(1.05);
+            }
+    </style>
+
+    <script>
+        const audio = document.getElementById('birthdayAudio');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const imagePlaceholder = document.getElementById('imagePlaceholder');
+        const image = document.getElementById('birthdayImage');
+        const loveMessage = document.getElementById('loveMessage');
+        const oipImage = document.getElementById('oipImage');
+        const oipMessage = document.getElementById('oipMessage');
+        const specialMessageBtn = document.getElementById('specialMessageBtn');
+        let isLoveMessageVisible = false;
+
+        function handleImageError() {
+            console.log('Image failed to load');
+            image.style.display = 'none';
+            imagePlaceholder.style.display = 'block';
+        }
+
+        function showLoveMessage() {
+            isLoveMessageVisible = !isLoveMessageVisible;
+            if (isLoveMessageVisible) {
+                loveMessage.classList.add('show');
+                image.style.opacity = '0.7';
+            } else {
+                loveMessage.classList.remove('show');
+                image.style.opacity = '1';
+            }
+        }
+
+        function showOipImage() {
+            const isShowing = oipImage.classList.contains('show');
+            if (!isShowing) {
+                oipImage.style.display = 'block';
+                setTimeout(() => {
+                    oipImage.classList.add('show');
+                    specialMessageBtn.classList.add('show');
+                }, 10);
+            } else {
+                oipImage.classList.remove('show');
+                oipMessage.classList.remove('show');
+                specialMessageBtn.classList.remove('show');
+                setTimeout(() => {
+                    oipImage.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        function showSpecialMessage() {
+            oipMessage.classList.toggle('show');
+        }
+
+        function playMusic() {
+            audio.play();
+            playButton.style.display = 'none';
+            pauseButton.style.display = 'inline-block';
+        }
+
+        function pauseMusic() {
+            audio.pause();
+            playButton.style.display = 'inline-block';
+            pauseButton.style.display = 'none';
+        }
+
+        // Handle audio ended event
+        audio.addEventListener('ended', function() {
+            playButton.style.display = 'inline-block';
+            pauseButton.style.display = 'none';
+        });
+
+        // Check if image exists on page load
+        window.onload = function() {
+            console.log('Page loaded, checking image...');
+            image.onerror = handleImageError;
+
+            // Try to load the image
+            const img = new Image();
+            img.onload = function() {
+                console.log('Image loaded successfully');
+                image.style.display = 'block';
+                imagePlaceholder.style.display = 'none';
+            };
+            img.onerror = function() {
+                console.log('Image failed to load');
+                handleImageError();
+            };
+            img.src = image.src;
+        };
+    </script>
+</body>
+</html>
