@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Memories - Happy Birthday Taizeen!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            animation: fadeInDown 1s ease;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 300px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            height: 500px;
+            width: 100%;
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .memory-section {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+            min-width: 300px;
+        }
+
+        .memory-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff69b4;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .memory-card h2 {
+            color: #ff69b4;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .memory-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .photo-highlight {
+            color: #ff69b4;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .heart {
+            color: #ff69b4;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-button:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .image-wrapper {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-heart heart"></i> Photo Memories <i class="fas fa-heart heart"></i></h1>
+        
+        <div class="content-wrapper">
+            <div class="image-container">
+                <div class="image-wrapper" style="animation-delay: 0.2s;">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 22.53.59_8a843e3c.jpg" alt="Beautiful Taizeen">
+                </div>
+            </div>
+
+            <div class="memory-section">
+                <div class="memory-card">
+                    <h2>Our Beautiful Photos</h2>
+                    <p>These photos capture the <span class="photo-highlight">beautiful moments</span> we've shared together. Each picture tells a story of our love and the special times we've spent together.</p>
+                    <p>In these photos, I see your <span class="photo-highlight">radiant smile</span>, your <span class="photo-highlight">beautiful eyes</span>, and the <span class="photo-highlight">love</span> that shines through in every moment we're together.</p>
+                    <p>These memories are <span class="photo-highlight">precious</span> to me, and I cherish each one. They remind me of how lucky I am to have you in my life.</p>
+                </div>
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper" style="animation-delay: 0.4s;">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 22.57.29_f06493fe.jpg" alt="My Love">
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="finalimages.html" class="nav-button">
+                <i class="fas fa-arrow-left"></i> Previous Page
+            </a>
+            <a href="proposal.html" class="nav-button">
+                Next Page <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

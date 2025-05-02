@@ -4,30 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Taizeen!</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f0f0f0;
+            color: #666;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-placeholder i {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            display: none;
+            background-color: #f0f0f0;
+        }
+
+        .image-container img.loaded {
+            display: block;
+        }
+
+        .love-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .love-message.show {
+            opacity: 1;
+        }
+
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-image-container {
+            margin: 20px 0;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .footer-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            display: none;
+            transition: all 0.3s ease;
+            background-color: #f0f0f0;
+        }
+
+        .footer-image.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .special-message-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            display: none;
+        }
+
+        .special-message-btn.show {
+            display: block;
+        }
+
+        .oip-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .oip-message.show {
+            opacity: 1;
+        }
+
+        .next-page-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .next-page-button:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-
-
-
     <div class="container">
         <div class="main-content">
             <div class="image-container">
-                <img src="images/Best-Beautiful-Images-For-Desktop-Nature.png" alt="Happy Birthday" id="birthdayImage" onerror="handleImageError()">
+                <div class="image-placeholder" id="mainImagePlaceholder">
+                    <i class="fas fa-image"></i>
+                    <p>Please add your birthday image</p>
+                    <p>Name it 'birthday.jpg' and place it in the 'images' folder</p>
+                </div>
+                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.58_55e37e50.jpg" alt="Happy Birthday" id="birthdayImage" onerror="handleImageError('birthdayImage', 'mainImagePlaceholder')" onload="handleImageLoad('birthdayImage', 'mainImagePlaceholder')">
                 <div class="love-message" id="loveMessage">
                     <h2>❤️ For My Beautiful Taizeen ❤️</h2>
                     <p>My Dearest Taizeen,</p>
-                    <p>Every moment with you feels like a beautiful dream. Your smile brightens my world, and your love makes my heart complete. You are the most amazing person I've ever known, and I'm so lucky to have you in my life.</p>
-                    <p>On your special day, I want you to know how much you mean to me. You're not just my love, you're my best friend, my partner, and my everything. I cherish every moment we spend together and look forward to creating many more beautiful memories with you.</p>
+                    <p>Every moment with you feels like a beautiful dream. Your smile brightens my world, and your love makes my heart complete.</p>
                     <p>Happy Birthday to the most beautiful soul I know! ❤️</p>
-                    <p>With all my love,</p>
-                    <p>Forever Yours</p>
-                </div>
-                <div class="image-placeholder" id="imagePlaceholder" style="display: none;">
-                    <i class="fas fa-image"></i>
-                    <p>Image not loading. Please check the image path.</p>
-                    <p>Make sure your image is in the 'images' folder.</p>
                 </div>
             </div>
 
@@ -61,59 +266,29 @@
                 <button onclick="showSpecialMessage()" class="special-message-btn" id="specialMessageBtn">
                     <i class="fas fa-comment"></i> Show Special Message
                 </button>
-                <img src="images/OIP.jpg" alt="Special Image" class="footer-image" id="oipImage">
+                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.59_3c3a722e.jpg" alt="Special Image" class="footer-image" id="oipImage" onerror="handleImageError('oipImage', 'specialImagePlaceholder')" onload="handleImageLoad('oipImage', 'specialImagePlaceholder')">
                 <div class="oip-message" id="oipMessage">
                     <h2>💙 Our Special Moments 💙</h2>
                     <p>Every time I see this image, it reminds me of our beautiful journey together.</p>
-                    <p>From the first moment we met to every special memory we've created, you've made my life complete.</p>
-                    <p>This picture captures just one of the many moments that make me fall in love with you all over again.</p>
                     <p>You're my favorite hello and my hardest goodbye. 💕</p>
                 </div>
             </div>
-            <button onclick="window.location.href='nextpage.html'" class="next-page-button">
+            <a href="nextpage.html" class="next-page-button">
                 <i class="fas fa-arrow-right"></i> Next Page
-            </button>
+            </a>
         </div>
     </div>
-
-    <style>
-        .next-page-button {
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin: 20px auto;
-            display: block;
-            font-size: 1.1em;
-        }
-
-            .next-page-button:hover {
-                background-color: #ff4da6;
-                transform: scale(1.05);
-            }
-    </style>
 
     <script>
         const audio = document.getElementById('birthdayAudio');
         const playButton = document.getElementById('playButton');
         const pauseButton = document.getElementById('pauseButton');
-        const imagePlaceholder = document.getElementById('imagePlaceholder');
         const image = document.getElementById('birthdayImage');
         const loveMessage = document.getElementById('loveMessage');
         const oipImage = document.getElementById('oipImage');
         const oipMessage = document.getElementById('oipMessage');
         const specialMessageBtn = document.getElementById('specialMessageBtn');
         let isLoveMessageVisible = false;
-
-        function handleImageError() {
-            console.log('Image failed to load');
-            image.style.display = 'none';
-            imagePlaceholder.style.display = 'block';
-        }
 
         function showLoveMessage() {
             isLoveMessageVisible = !isLoveMessageVisible;
@@ -145,7 +320,14 @@
         }
 
         function showSpecialMessage() {
-            oipMessage.classList.toggle('show');
+            const isShowing = oipMessage.classList.contains('show');
+            if (!isShowing) {
+                oipMessage.classList.add('show');
+                specialMessageBtn.innerHTML = '<i class="fas fa-times"></i> Hide Message';
+            } else {
+                oipMessage.classList.remove('show');
+                specialMessageBtn.innerHTML = '<i class="fas fa-comment"></i> Show Special Message';
+            }
         }
 
         function playMusic() {
@@ -160,29 +342,38 @@
             pauseButton.style.display = 'none';
         }
 
-        // Handle audio ended event
         audio.addEventListener('ended', function() {
             playButton.style.display = 'inline-block';
             pauseButton.style.display = 'none';
         });
 
-        // Check if image exists on page load
-        window.onload = function() {
-            console.log('Page loaded, checking image...');
-            image.onerror = handleImageError;
+        function handleImageError(imageId, placeholderId) {
+            const image = document.getElementById(imageId);
+            const placeholder = document.getElementById(placeholderId);
+            image.style.display = 'none';
+            placeholder.style.display = 'flex';
+        }
 
-            // Try to load the image
-            const img = new Image();
-            img.onload = function() {
-                console.log('Image loaded successfully');
-                image.style.display = 'block';
-                imagePlaceholder.style.display = 'none';
-            };
-            img.onerror = function() {
-                console.log('Image failed to load');
-                handleImageError();
-            };
-            img.src = image.src;
+        function handleImageLoad(imageId, placeholderId) {
+            const image = document.getElementById(imageId);
+            const placeholder = document.getElementById(placeholderId);
+            image.classList.add('loaded');
+            placeholder.style.display = 'none';
+        }
+
+        // Check images on page load
+        window.onload = function() {
+            const images = ['birthdayImage', 'oipImage'];
+            images.forEach(imageId => {
+                const image = document.getElementById(imageId);
+                if (image.complete) {
+                    if (image.naturalWidth === 0) {
+                        handleImageError(imageId, imageId === 'birthdayImage' ? 'mainImagePlaceholder' : 'specialImagePlaceholder');
+                    } else {
+                        handleImageLoad(imageId, imageId === 'birthdayImage' ? 'mainImagePlaceholder' : 'specialImagePlaceholder');
+                    }
+                }
+            });
         };
     </script>
 </body>
