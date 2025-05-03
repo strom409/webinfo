@@ -4,5 +4,15 @@
 
 [[redirects]]
   from = "/*"
-  to = "/WebApplication3/index.html"
-  status = 200 
+  to = "/index.html"
+  status = 200
+  force = true
+  conditions = {Not = [
+    {Path = ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.webp", "*.mp4", "*.css", "*.js"]}
+  ]}
+
+[[redirects]]
+  from = "/wwwroot/*"
+  to = "/wwwroot/:splat"
+  status = 200
+  force = true 
