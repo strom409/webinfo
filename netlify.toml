@@ -1,10 +1,10 @@
 [build]
-  publish = "."
+  publish = "WebApplication3"
   command = ""
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/WebApplication3/index.html"
   status = 200
   force = true
   conditions = {Not = [
@@ -12,7 +12,7 @@
   ]}
 
 [[redirects]]
-  from = "/wwwroot/*"
-  to = "/wwwroot/:splat"
+  from = "/WebApplication3/wwwroot/*"
+  to = "/WebApplication3/wwwroot/:splat"
   status = 200
   force = true 
