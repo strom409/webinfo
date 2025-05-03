@@ -1,8 +1,8 @@
 [build]
-  publish = "WebApplication3"
+  publish = "."
   command = ""
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/WebApplication3/index.html"
   status = 200 

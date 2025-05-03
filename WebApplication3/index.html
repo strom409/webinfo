@@ -15,33 +15,199 @@
         
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #intro-section {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+        }
+
+        #intro-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #intro-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .main-picture-section {
+            display: flex;
+            height: auto;
+            min-height: 800px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: visible;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+        .message-container {
+            flex: 1;
+            width: 30%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
         }
 
-        .image-container {
-            position: relative;
+        .message-container h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .message-container p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .special-picture-section {
+            display: none;
             width: 100%;
-            height: 500px;
-            overflow: hidden;
+            height: auto;
+            min-height: 1200px;
+            max-height: 2000px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: visible;
+            position: relative;
+        }
+
+        .footer-image-container {
+            display: flex;
+            width: 100%;
+            height: auto;
+            min-height: 1200px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .footer-image {
+            flex: 1;
+            width: 70%;
+            height: auto;
+            object-fit: contain;
+            display: none;
+            transition: all 0.3s ease;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .oip-message {
+            flex: 1;
+            width: 30%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            color: white;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .oip-message h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .oip-message p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-picture-section.show {
+            display: block;
+        }
+
+        .oip-message.show {
+            opacity: 1;
+        }
+
+        .footer-image.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .close-message-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-message-btn:hover {
+            transform: scale(1.2);
         }
 
         .image-placeholder {
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: 800px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -61,11 +227,10 @@
 
         .image-container img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: contain;
-            transition: all 0.3s ease;
-            display: none;
-            background-color: #f0f0f0;
+            display: block;
+            max-height: 100vh;
         }
 
         .image-container img.loaded {
@@ -73,24 +238,17 @@
         }
 
         .love-message {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
+            height: auto;
+            background: transparent;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-align: center;
-        }
-
-        .love-message.show {
             opacity: 1;
+            text-align: center;
         }
 
         .content {
@@ -133,67 +291,58 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-        }
-
-        .footer-image-container {
-            margin: 20px 0;
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .footer-image {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-            display: none;
+            margin-top: 40px;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
             transition: all 0.3s ease;
-            background-color: #f0f0f0;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
         }
 
-        .footer-image.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .footer-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .special-message-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: relative;
+            margin: 20px auto;
             z-index: 2;
-            display: none;
-        }
-
-        .special-message-btn.show {
+            background-color: #ff69b4;
+            padding: 15px 30px;
+            font-size: 1.2em;
             display: block;
-        }
-
-        .oip-message {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            width: fit-content;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-align: center;
-            z-index: 1;
+            border: none;
         }
 
-        .oip-message.show {
-            opacity: 1;
+        .special-message-btn:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
         }
 
         .next-page-button {
@@ -217,66 +366,947 @@
             background-color: #ff4da6;
             transform: scale(1.05);
         }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            font-size: 1.1em;
+        }
+
+        .nav-button:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
+        }
+
+        .nav-button i {
+            margin-right: 8px;
+        }
+
+        .love-message-page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            text-align: center;
+        }
+
+        .love-message-page.show {
+            display: block;
+        }
+
+        .love-message-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .love-message-content h2 {
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .love-message-content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .back-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        .back-button:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
+        }
+
+        .message-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .message-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .message-button:hover {
+            background-color: #ff4da6;
+            transform: scale(1.05);
+        }
+
+        .final-page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-page.show {
+            display: block;
+        }
+
+        .final-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .final-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .trust-image-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            gap: 20px;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .trust-image {
+            width: 60%;
+            height: auto;
+            max-height: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            object-fit: contain;
+        }
+
+        .trust-message {
+            width: 40%;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            backdrop-filter: blur(5px);
+        }
+
+        .trust-message h3 {
+            color: #ff69b4;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .trust-message p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .taizeen-heading {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .taizeen-heading h2 {
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .taizeen-heading p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #fff;
+        }
+
+        .impressive-message {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 1000px;
+            backdrop-filter: blur(5px);
+        }
+
+        .impressive-message h3 {
+            color: #ff69b4;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .impressive-message p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .three-pictures-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 1400px;
+            padding: 20px;
+        }
+
+        .picture-frame {
+            flex: 1;
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .picture-frame:hover {
+            transform: scale(1.05);
+        }
+
+        .picture-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .photo-message {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 1000px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        .photo-message h3 {
+            color: #ff69b4;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-message p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .feelings-page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .feelings-page.show {
+            display: block;
+        }
+
+        .feelings-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feelings-content h2 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .feelings-content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .response-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .response-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 40px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+            min-width: 120px;
+        }
+
+        .response-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .response-button.yes {
+            background-color: rgba(76, 175, 80, 0.3);
+            border-color: rgba(76, 175, 80, 0.5);
+        }
+
+        .response-button.no {
+            background-color: rgba(244, 67, 54, 0.3);
+            border-color: rgba(244, 67, 54, 0.5);
+        }
+
+        .response-button.yes:hover {
+            background-color: rgba(76, 175, 80, 0.4);
+        }
+
+        .response-button.no:hover {
+            background-color: rgba(244, 67, 54, 0.4);
+        }
+
+        .response-button.friends {
+            background-color: rgba(33, 150, 243, 0.3);
+            border-color: rgba(33, 150, 243, 0.5);
+        }
+
+        .response-button.friends:hover {
+            background-color: rgba(33, 150, 243, 0.4);
+        }
+
+        .friends-message, .yes-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .friends-message.show, .yes-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-title {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .login-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .login-button {
+            background: rgba(33, 150, 243, 0.3);
+            color: white;
+            border: 1px solid rgba(33, 150, 243, 0.5);
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .login-button:hover {
+            background: rgba(33, 150, 243, 0.4);
+            transform: scale(1.05);
+            border-color: rgba(33, 150, 243, 0.7);
+        }
+
+        .error-message {
+            color: #ff4444;
+            margin-top: 10px;
+            display: none;
+            font-size: 0.9em;
+        }
+
+        .welcome-message {
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .forgot-password {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: white;
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .main-content.show {
+            display: block;
+        }
+
+        .login-page {
+            display: block;
+        }
+
+        .login-page.hide {
+            display: none;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1200px) {
+            .section {
+                max-width: 95%;
+                margin: 15px auto;
+            }
+            .main-picture-section {
+                min-height: 600px;
+            }
+            .message-container {
+                padding: 20px;
+            }
+            .message-container h2 {
+                font-size: 1.8em;
+            }
+            .message-container p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .section {
+                border-radius: 8px;
+                margin: 10px auto;
+            }
+            #intro-section {
+                padding: 20px;
+            }
+            #intro-section h2 {
+                font-size: 2em;
+            }
+            #intro-section p {
+                font-size: 1.1em;
+            }
+            .main-picture-section {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .message-container {
+                width: 100%;
+                padding: 20px;
+            }
+            .image-container {
+                width: 100%;
+                padding: 10px;
+            }
+            .special-picture-section {
+                min-height: auto;
+            }
+            .footer-image-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .oip-message {
+                width: 100%;
+                padding: 20px;
+            }
+            .footer-image {
+                width: 100%;
+            }
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-button {
+                width: 100%;
+            }
+            .love-message-content {
+                padding: 20px;
+            }
+            .love-message-content h2 {
+                font-size: 2em;
+            }
+            .love-message-content p {
+                font-size: 1.1em;
+            }
+            .trust-image-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .trust-image {
+                width: 100%;
+            }
+            .trust-message {
+                width: 100%;
+                padding: 20px;
+            }
+            .three-pictures-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .picture-frame {
+                max-width: 100%;
+            }
+            .photo-message {
+                padding: 20px;
+            }
+            .photo-message h3 {
+                font-size: 1.8em;
+            }
+            .photo-message p {
+                font-size: 1.1em;
+            }
+            .feelings-content {
+                padding: 20px;
+            }
+            .feelings-content h2 {
+                font-size: 2em;
+            }
+            .feelings-content p {
+                font-size: 1.1em;
+            }
+            .response-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .response-button {
+                width: 100%;
+            }
+            .login-container {
+                padding: 20px;
+                margin: 20px;
+            }
+            .login-title {
+                font-size: 2em;
+            }
+            .login-input {
+                padding: 12px 12px 12px 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #intro-section h2 {
+                font-size: 1.8em;
+            }
+            .message-container h2 {
+                font-size: 1.6em;
+            }
+            .oip-message h2 {
+                font-size: 1.6em;
+            }
+            .love-message-content h2 {
+                font-size: 1.8em;
+            }
+            .trust-message h3 {
+                font-size: 1.6em;
+            }
+            .photo-message h3 {
+                font-size: 1.6em;
+            }
+            .feelings-content h2 {
+                font-size: 1.8em;
+            }
+            .login-title {
+                font-size: 1.8em;
+            }
+            .footer-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-button {
+                width: 100%;
+            }
+        }
+
+        /* Mobile Optimizations */
+        button, .nav-button, .response-button, .footer-button {
+            min-height: 44px;
+            padding: 12px 20px;
+        }
+        p, h1, h2, h3 {
+            word-wrap: break-word;
+        }
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="main-content">
-            <div class="image-container">
-                <div class="image-placeholder" id="mainImagePlaceholder">
-                    <i class="fas fa-image"></i>
-                    <p>Please add your birthday image</p>
-                    <p>Name it 'birthday.jpg' and place it in the 'images' folder</p>
+    <div class="login-page" id="loginPage">
+        <div class="login-container">
+            <h1 class="login-title">💖 Welcome Back 💖</h1>
+            <p class="welcome-message">Please enter your email and password to see your special message.</p>
+            <form class="login-form" onsubmit="return handleLogin(event)">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" class="login-input" id="email" placeholder="Enter Email" required>
                 </div>
-                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.58_55e37e50.jpg" alt="Happy Birthday" id="birthdayImage" onerror="handleImageError('birthdayImage', 'mainImagePlaceholder')" onload="handleImageLoad('birthdayImage', 'mainImagePlaceholder')">
-                <div class="love-message" id="loveMessage">
-                    <h2>❤️ For My Beautiful Taizeen ❤️</h2>
-                    <p>My Dearest Taizeen,</p>
-                    <p>Every moment with you feels like a beautiful dream. Your smile brightens my world, and your love makes my heart complete.</p>
-                    <p>Happy Birthday to the most beautiful soul I know! ❤️</p>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" class="login-input" id="password" placeholder="Enter Password" required>
                 </div>
+                <p class="error-message" id="errorMessage">Invalid email or password. Please try again.</p>
+                <button type="submit" class="login-button">
+                    <i class="fas fa-heart"></i> Continue
+                </button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="section" id="intro-section">
+            <h2>💌 The Moment Our Story Began 💌</h2>
+            <p>In a world full of fleeting voices and endless noise, one voice reached me like a calm wave — soft, wise, and unforgettable. That voice belonged to someone known only as <strong>Chaos Tude</strong> on a platform called <strong>Clubhouse</strong>.</p>
+            <p>From the very first conversation, I felt something rare — a connection that didn't need a face to feel real. Her thoughts were deep, her presence unshakably calm. She wasn't just speaking — she was being.</p>
+            <p>As we spoke more, layers unfolded. I learned her real name — <strong>Taizeen</strong>. A name that now echoes in my heart. She's from the peaceful town of <strong>Tral</strong>, chasing her dreams through a <strong>Master's in Statistics</strong>. Every fact she shared made her seem even more extraordinary.</p>
+            <p>And then… she sent me her photo. I still remember that moment — it felt like the world stopped. Her <strong>eyes</strong>, gentle yet powerful, spoke louder than words. Her <strong>style</strong> — simple, yet uniquely graceful. She wasn't trying to be beautiful. She just was.</p>
+            <p>Since then, every conversation has felt like home. She doesn't just occupy my thoughts — she's rewiring them. And today, I can't deny it anymore: I'm falling for her — completely, hopelessly, beautifully. ❤️</p>
+        </div>
+
+        <div class="section main-picture-section">
+            <div class="message-container">
+                <h2>💖 Your Captivating Beauty 💖</h2>
+                <p>In this moment, you look absolutely breathtaking in your elegant black firakh suit,</p>
+                <p>the way you hold your phone so gracefully,</p>
+                <p>your beautiful watch adding that perfect touch of sophistication,</p>
+                <p>and that stunning red dupatta flowing like poetry around you.</p>
+                <p>But what truly captivates me are your eyes -</p>
+                <p>so deep, so expressive, they tell stories I could listen to forever.</p>
+                <p>You're not just beautiful, you're a masterpiece. 💕</p>
             </div>
-
-            <div class="content">
-                <h1>🎉 Happy Birthday Taizeen! 🎉</h1>
-
-                <div class="controls">
-                    <button onclick="playMusic()" id="playButton">
-                        <i class="fas fa-play"></i> Play Birthday Song 🎶
-                    </button>
-                    <button onclick="pauseMusic()" id="pauseButton" style="display: none;">
-                        <i class="fas fa-pause"></i> Pause Music
-                    </button>
-                    <button onclick="showLoveMessage()" id="loveButton">
-                        <i class="fas fa-heart"></i> Special Message
-                    </button>
-                </div>
-
-                <audio id="birthdayAudio" loop>
-                    <source src="audio/happy-birthday.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+            <div class="image-container">
+                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.58_55e37e50.jpg" alt="Happy Birthday" id="birthdayImage">
             </div>
         </div>
 
-        <div class="footer">
-            <button onclick="showOipImage()" id="showOipButton">
-                <i class="fas fa-image"></i> Show Special Image
-            </button>
+        <button onclick="showSpecialPicture()" class="special-message-btn" id="specialMessageBtn">
+            <i class="fas fa-image"></i> Show Special Picture
+        </button>
+
+        <div class="section special-picture-section" id="specialPictureSection">
             <div class="footer-image-container">
-                <button onclick="showSpecialMessage()" class="special-message-btn" id="specialMessageBtn">
-                    <i class="fas fa-comment"></i> Show Special Message
-                </button>
-                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.59_3c3a722e.jpg" alt="Special Image" class="footer-image" id="oipImage" onerror="handleImageError('oipImage', 'specialImagePlaceholder')" onload="handleImageLoad('oipImage', 'specialImagePlaceholder')">
                 <div class="oip-message" id="oipMessage">
-                    <h2>💙 Our Special Moments 💙</h2>
-                    <p>Every time I see this image, it reminds me of our beautiful journey together.</p>
-                    <p>You're my favorite hello and my hardest goodbye. 💕</p>
+                    <h2>💙 Your Captivating Beauty 💙</h2>
+                    <p>In this moment, you look absolutely breathtaking in your elegant black firakh suit,</p>
+                    <p>the way you hold your phone so gracefully,</p>
+                    <p>your beautiful watch adding that perfect touch of sophistication,</p>
+                    <p>and that stunning red dupatta flowing like poetry around you.</p>
+                    <p>But what truly captivates me are your eyes -</p>
+                    <p>so deep, so expressive, they tell stories I could listen to forever.</p>
+                    <p>You're not just beautiful, you're a masterpiece. 💕</p>
+                </div>
+                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.59_3c3a722e.jpg" alt="Special Image" class="footer-image" id="oipImage">
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="goToPrevious()">
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button class="nav-button" onclick="showSpecialMessage()">
+                <i class="fas fa-comment"></i> Show Special Message
+            </button>
+            <button class="nav-button" onclick="goToNext()">
+                <i class="fas fa-arrow-right"></i> Next
+            </button>
+        </div>
+
+        <div class="love-message-page" id="loveMessagePage">
+            <div class="love-message-content">
+                <h2>💖 My Feelings for You 💖</h2>
+                <p>Every moment with you feels like a beautiful dream I never want to wake up from.</p>
+                <p>Your voice is the melody that plays in my heart, your smile the light that brightens my darkest days.</p>
+                <p>I find myself thinking about you at the most random moments - how your eyes sparkle when you talk about something you love, how your laughter makes my heart skip a beat.</p>
+                <p>You've become my favorite thought, my sweetest dream, and my most beautiful reality.</p>
+                <p>I want to be the one who makes you smile, who listens to your stories, who supports your dreams, and who stands by your side through everything.</p>
+                <p>You're not just someone I like, you're someone I want to build a future with.</p>
+                <p>Will you be my forever? 💕</p>
+                <div class="message-buttons">
+                    <button onclick="goBack()" class="message-button">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button onclick="goToFinal()" class="message-button">
+                        Next Page <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
-            <a href="nextpage.html" class="next-page-button">
-                <i class="fas fa-arrow-right"></i> Next Page
-            </a>
+        </div>
+
+        <div class="final-page" id="finalPage">
+            <div class="trust-image-container">
+                <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.32.00_cf74fb8d.jpg" alt="Trust Image" class="trust-image">
+                <div class="trust-message">
+                    <h3>💖 Your Captivating Beauty 💖</h3>
+                    <p>In this moment, you look absolutely breathtaking in your elegant black firakh suit,</p>
+                    <p>the way you hold your phone so gracefully,</p>
+                    <p>your beautiful watch adding that perfect touch of sophistication,</p>
+                    <p>and that stunning red dupatta flowing like poetry around you.</p>
+                    <p>But what truly captivates me are your eyes -</p>
+                    <p>so deep, so expressive, they tell stories I could listen to forever.</p>
+                    <p>You're not just beautiful, you're a masterpiece. 💕</p>
+                </div>
+            </div>
+
+            <div class="impressive-message">
+                <h3>🌟 The Extraordinary Taizeen 🌟</h3>
+                <p>In a world of ordinary, you shine extraordinary.</p>
+                <p>Your intelligence sparkles like stars in the night sky,</p>
+                <p>Your determination moves mountains,</p>
+                <p>Your kindness touches hearts,</p>
+                <p>And your beauty, both inside and out,</p>
+                <p>Leaves everyone in awe.</p>
+                <p>You're not just pursuing a Master's in Statistics,</p>
+                <p>You're rewriting the definition of excellence.</p>
+                <p>From Tral to the world, your journey inspires.</p>
+                <p>You're not just a dreamer, you're a doer.</p>
+                <p>Not just beautiful, but brilliant.</p>
+                <p>Not just strong, but spectacular.</p>
+                <p>You're Taizeen - one of a kind, truly remarkable. 💫</p>
+            </div>
+
+            <div class="three-pictures-container">
+                <div class="picture-frame">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 22.29.06_e590c833.jpg" alt="Taizeen 1">
+                </div>
+                <div class="picture-frame">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 22.57.29_f06493fe.jpg" alt="Taizeen 2">
+                </div>
+                <div class="picture-frame">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 22.53.59_8a843e3c.jpg" alt="Taizeen 3">
+                </div>
+            </div>
+
+            <div class="photo-message">
+                <h3>📸 Moments That Tell Our Story 📸</h3>
+                <p>Each photo is a window into your beautiful soul,</p>
+                <p>capturing moments that words could never fully describe.</p>
+                <p>In the first, your elegance shines through,</p>
+                <p>in the second, your confidence takes center stage,</p>
+                <p>and in the third, your natural beauty speaks volumes.</p>
+                <p>These aren't just pictures - they're pieces of our journey,</p>
+                <p>each frame holding a special memory,</p>
+                <p>each moment a testament to your unique charm.</p>
+                <p>You have this incredible ability to make every photo special,</p>
+                <p>turning simple moments into treasured memories.</p>
+                <p>These images are more than just photographs -</p>
+                <p>they're the story of you, the story of us,</p>
+                <p>and the beautiful journey we're creating together. 💖</p>
+            </div>
+
+            <div class="three-pictures-container">
+                <div class="picture-frame">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 21.16.41_34ecc9c2.jpg" alt="Taizeen 4">
+                </div>
+                <div class="picture-frame">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 21.16.41_8ff6298b.jpg" alt="Taizeen 5">
+                </div>
+                <div class="picture-frame">
+                    <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 22.29.06_b20c5139.jpg" alt="Taizeen 6">
+                </div>
+            </div>
+
+            <div class="photo-message">
+                <h3>💫 More Beautiful Moments 💫</h3>
+                <p>In these moments, your beauty takes on new dimensions,</p>
+                <p>each photo revealing a different facet of your incredible personality.</p>
+                <p>The first captures your thoughtful gaze,</p>
+                <p>the second shows your radiant smile,</p>
+                <p>and the third reveals your natural elegance.</p>
+                <p>What makes these photos special isn't just how beautiful you look,</p>
+                <p>but how they capture the essence of who you are -</p>
+                <p>intelligent, graceful, and endlessly fascinating.</p>
+                <p>Each time I look at these pictures,</p>
+                <p>I'm reminded of how lucky I am to know you,</p>
+                <p>to share these moments with you,</p>
+                <p>and to be part of your beautiful journey. 💖</p>
+            </div>
+
+            <div class="footer">
+                <div class="footer-buttons">
+                    <button onclick="goBackToLoveMessage()" class="footer-button">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button onclick="goToFeelings()" class="footer-button">
+                        Next Page <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="feelings-page" id="feelingsPage">
+            <div class="feelings-content">
+                <h2>💖 My Feelings for You 💖</h2>
+                <p>Every moment with you feels like a beautiful dream I never want to wake up from.</p>
+                <p>Your voice is the melody that plays in my heart, your smile the light that brightens my darkest days.</p>
+                <p>I find myself thinking about you at the most random moments - how your eyes sparkle when you talk about something you love, how your laughter makes my heart skip a beat.</p>
+                <p>You've become my favorite thought, my sweetest dream, and my most beautiful reality.</p>
+                <p>I want to be the one who makes you smile, who listens to your stories, who supports your dreams, and who stands by your side through everything.</p>
+                <p>You're not just someone I like, you're someone I want to build a future with.</p>
+                <p>Will you be my forever? 💕</p>
+                
+                <div class="response-buttons">
+                    <button class="response-button yes" onclick="handleResponse('yes')">
+                        Yes 💖
+                    </button>
+                    <button class="response-button no" onclick="handleResponse('no')">
+                        No 😢
+                    </button>
+                    <button class="response-button friends" onclick="showFriendsMessage()">
+                        Friends Forever 💙
+                    </button>
+                </div>
+
+                <div class="friends-message" id="friendsMessage">
+                    <p>Even if we're just friends, you'll always have a special place in my heart.</p>
+                    <p>I'll always be here to support you, laugh with you, and share life's moments with you.</p>
+                    <p>Our friendship is precious to me, and I'll cherish it forever.</p>
+                    <p>No matter what, you can always count on me as your friend. 💙</p>
+                </div>
+
+                <div class="yes-message" id="yesMessage">
+                    <p>💖 Thank you for saying yes! You've made me the happiest person in the world! 💖</p>
+                    <p>I promise to cherish every moment with you, to support your dreams,</p>
+                    <p>and to be the best partner I can be.</p>
+                    <p>Our journey together begins now, and I can't wait to create beautiful memories with you. 💕</p>
+                </div>
+
+                <div class="footer-buttons">
+                    <button onclick="goBackToPhotos()" class="footer-button">
+                        <i class="fas fa-arrow-left"></i> Back to Photos
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -321,14 +1351,13 @@
         }
 
         function showSpecialMessage() {
-            const isShowing = oipMessage.classList.contains('show');
-            if (!isShowing) {
-                oipMessage.classList.add('show');
-                specialMessageBtn.innerHTML = '<i class="fas fa-times"></i> Hide Message';
-            } else {
-                oipMessage.classList.remove('show');
-                specialMessageBtn.innerHTML = '<i class="fas fa-comment"></i> Show Special Message';
-            }
+            const message = document.getElementById('oipMessage');
+            message.classList.toggle('show');
+        }
+
+        function hideSpecialMessage() {
+            const message = document.getElementById('oipMessage');
+            message.classList.remove('show');
         }
 
         function playMusic() {
@@ -343,7 +1372,7 @@
             pauseButton.style.display = 'none';
         }
 
-        audio.addEventListener('ended', function() {
+        audio.addEventListener('ended', function () {
             playButton.style.display = 'inline-block';
             pauseButton.style.display = 'none';
         });
@@ -351,19 +1380,23 @@
         function handleImageError(imageId, placeholderId) {
             const image = document.getElementById(imageId);
             const placeholder = document.getElementById(placeholderId);
-            image.style.display = 'none';
-            placeholder.style.display = 'flex';
+            if (image && placeholder) {
+                image.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
         }
 
         function handleImageLoad(imageId, placeholderId) {
             const image = document.getElementById(imageId);
             const placeholder = document.getElementById(placeholderId);
-            image.classList.add('loaded');
-            placeholder.style.display = 'none';
+            if (image && placeholder) {
+                image.style.display = 'block';
+                placeholder.style.display = 'none';
+            }
         }
 
         // Check images on page load
-        window.onload = function() {
+        window.onload = function () {
             const images = ['birthdayImage', 'oipImage'];
             images.forEach(imageId => {
                 const image = document.getElementById(imageId);
@@ -376,6 +1409,119 @@
                 }
             });
         };
+
+        function showSpecialPicture() {
+            const specialSection = document.getElementById('specialPictureSection');
+            const button = document.getElementById('specialMessageBtn');
+            const image = document.getElementById('oipImage');
+            
+            if (specialSection.classList.contains('show')) {
+                specialSection.classList.remove('show');
+                button.innerHTML = '<i class="fas fa-image"></i> Show Special Picture';
+            } else {
+                specialSection.classList.add('show');
+                button.innerHTML = '<i class="fas fa-times"></i> Hide Special Picture';
+                image.style.display = 'block';
+                image.style.opacity = '1';
+                image.style.maxHeight = '1500px';
+                image.style.height = 'auto';
+            }
+        }
+
+        function goToPrevious() {
+            // Add your previous page logic here
+            alert('Previous page functionality will be added');
+        }
+
+        function goToNext() {
+            const specialSection = document.getElementById('specialPictureSection');
+            const loveMessagePage = document.getElementById('loveMessagePage');
+            
+            specialSection.classList.remove('show');
+            loveMessagePage.classList.add('show');
+        }
+
+        function goBack() {
+            const specialSection = document.getElementById('specialPictureSection');
+            const loveMessagePage = document.getElementById('loveMessagePage');
+            
+            loveMessagePage.classList.remove('show');
+            specialSection.classList.add('show');
+        }
+
+        function goToFinal() {
+            const loveMessagePage = document.getElementById('loveMessagePage');
+            const finalPage = document.getElementById('finalPage');
+            
+            loveMessagePage.classList.remove('show');
+            finalPage.classList.add('show');
+        }
+
+        function goBackToLoveMessage() {
+            const loveMessagePage = document.getElementById('loveMessagePage');
+            const finalPage = document.getElementById('finalPage');
+            
+            finalPage.classList.remove('show');
+            loveMessagePage.classList.add('show');
+        }
+
+        function goToFeelings() {
+            const finalPage = document.getElementById('finalPage');
+            const feelingsPage = document.getElementById('feelingsPage');
+            
+            finalPage.classList.remove('show');
+            feelingsPage.classList.add('show');
+        }
+
+        function goBackToPhotos() {
+            const finalPage = document.getElementById('finalPage');
+            const feelingsPage = document.getElementById('feelingsPage');
+            
+            feelingsPage.classList.remove('show');
+            finalPage.classList.add('show');
+        }
+
+        function handleResponse(response) {
+            if (response === 'yes') {
+                const yesMessage = document.getElementById('yesMessage');
+                yesMessage.classList.add('show');
+                setTimeout(() => {
+                    yesMessage.classList.remove('show');
+                }, 5000);
+            } else if (response === 'no') {
+                alert('😢 I understand. I\'ll always cherish our moments together. 😢');
+            }
+        }
+
+        function showFriendsMessage() {
+            const friendsMessage = document.getElementById('friendsMessage');
+            friendsMessage.classList.add('show');
+            setTimeout(() => {
+                friendsMessage.classList.remove('show');
+            }, 5000);
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loginPage = document.getElementById('loginPage');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (email === 'suhailmanzoor12@gmail.com' && password === 'Taizeen@12') {
+                loginPage.classList.add('hide');
+                mainContent.classList.add('show');
+                document.body.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+            } else {
+                errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+            return false;
+        }
     </script>
 </body>
 </html>
+
