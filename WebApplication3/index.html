@@ -1341,7 +1341,7 @@
     </div>
 
     <script>
-        // Add this new function for heart animation
+        // Update the heart animation code
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -1400,6 +1400,8 @@
             if (loginForm) {
                 loginForm.addEventListener('submit', handleLogin);
             }
+            // Start creating hearts immediately
+            createHeart();
         }
     </script>
 </body>
