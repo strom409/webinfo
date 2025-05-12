@@ -762,105 +762,199 @@
         }
 
         .login-container {
+            position: relative;
+            z-index: 2;
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: containerFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes containerFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .login-title {
-            color: white;
             font-size: 2.5em;
-            margin-bottom: 30px;
+            color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .input-group {
-            position: relative;
-        }
-
-        .input-group i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .login-input {
-            width: 100%;
-            padding: 15px 15px 15px 45px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .login-input:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .login-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .login-button {
-            background: rgba(33, 150, 243, 0.3);
-            color: white;
-            border: 1px solid rgba(33, 150, 243, 0.5);
-            padding: 15px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-            margin-top: 20px;
-        }
-
-        .login-button:hover {
-            background: rgba(33, 150, 243, 0.4);
-            transform: scale(1.05);
-            border-color: rgba(33, 150, 243, 0.7);
-        }
-
-        .error-message {
-            color: #ff4444;
-            margin-top: 10px;
-            display: none;
-            font-size: 0.9em;
+            margin-bottom: 20px;
         }
 
         .welcome-message {
             color: white;
+            font-size: 1.2em;
             margin-bottom: 30px;
-            line-height: 1.6;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
+        .login-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .login-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .login-button {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .login-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+        }
+
         .forgot-password {
-            color: rgba(255, 255, 255, 0.7);
+            color: white;
             text-decoration: none;
-            font-size: 0.9em;
-            margin-top: 10px;
-            transition: color 0.3s ease;
+            margin-top: 15px;
+            display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .forgot-password:hover {
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        .heart-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff69b4;
+            transform: rotate(45deg);
+            animation: heartFloat 6s ease-in infinite;
+            opacity: 0;
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff69b4;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            left: -15px;
+        }
+
+        .heart:after {
+            top: -15px;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: rotate(45deg) translateY(0) scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: rotate(45deg) translateY(-200px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .name-display {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 4em;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            animation: nameGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .name-display:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff69b4, transparent);
+        }
+
+        @keyframes nameGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+            }
+        }
+
+        .running-line {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 105, 180, 0.2);
             color: white;
+            padding: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            display: none;
+        }
+
+        .running-line span {
+            display: inline-block;
+            animation: runText 20s linear infinite;
+        }
+
+        @keyframes runText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
         .main-content {
@@ -1059,107 +1153,6 @@
             max-width: 100%;
             overflow-x: hidden;
         }
-
-        /* Add these new styles after the existing styles */
-        .heart-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff69b4;
-            transform: rotate(45deg);
-            animation: heartFloat 4s ease-in infinite;
-            opacity: 0;
-        }
-
-        .heart:before,
-        .heart:after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff69b4;
-            border-radius: 50%;
-        }
-
-        .heart:before {
-            left: -10px;
-        }
-
-        .heart:after {
-            top: -10px;
-        }
-
-        @keyframes heartFloat {
-            0% {
-                transform: rotate(45deg) translateY(0) scale(0.3);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: rotate(45deg) translateY(-100px) scale(1);
-                opacity: 0;
-            }
-        }
-
-        .name-display {
-            font-family: 'Brush Script MT', cursive;
-            font-size: 3em;
-            color: #ff69b4;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-            animation: nameGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes nameGlow {
-            0%, 100% {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            }
-            50% {
-                text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff69b4;
-            }
-        }
-
-        .running-line {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 105, 180, 0.2);
-            color: white;
-            padding: 10px 0;
-            white-space: nowrap;
-            overflow: hidden;
-            display: none;
-        }
-
-        .running-line span {
-            display: inline-block;
-            animation: runText 20s linear infinite;
-        }
-
-        @keyframes runText {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .login-container {
-            position: relative;
-            z-index: 2;
-        }
     </style>
 </head>
 <body>
@@ -1264,19 +1257,34 @@
             </div>
 
             <div class="trust-message" style="text-align: center; margin: 40px 0; padding: 30px; background: rgba(255, 255, 255, 0.1); border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-                <h3 style="color: #ff69b4; margin-bottom: 25px; font-size: 2em;">💫 Understanding Kirah Hassan 💫</h3>
-                
-                <p style="margin-bottom: 20px; line-height: 1.8;">Kirah, your name itself carries the essence of beauty and grace. Your gorgeous appearance is just the beginning - your inner strength and resilience make you truly remarkable. I understand that your past experiences have left deep scars, making it difficult to trust again. The pain of betrayal is something that changes a person, but it doesn't define who you are.</p>
+                <div style="display: flex; gap: 30px; align-items: flex-start;">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+                        <img src="https://media.istockphoto.com/id/926653366/photo/youre-in-a-safe-space-space-now.jpg?s=612x612&w=0&k=20&c=9cobosHjhwzdK4_bRe-OlhdaUzNQO_KksyVx4_ja9uQ=" 
+                             alt="Safe Space" 
+                             style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        <img src="https://media.istockphoto.com/id/1206482699/photo/outdoor-image-of-female-friends-holding-hands-while-sitting-on-bench.jpg?s=612x612&w=0&k=20&c=GfzrA3sjdM3af2o54elJDdUxpMcl17k43vC8NqJQuNc=" 
+                             alt="Friends Support" 
+                             style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        <img src="https://media.istockphoto.com/id/1133580260/photo/hands-of-man-people-fist-bump-team-teamwork-and-partnership-business-success-black-and-white.jpg?s=612x612&w=0&k=20&c=oQ-DVBN-k1OFbX-sQM5wo0m3F_MdZjv7JrLTJ3IJXlk=" 
+                             alt="Partnership" 
+                             style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                    </div>
+                    <div style="flex: 2;">
+                        <h3 style="color: #ff69b4; margin-bottom: 25px; font-size: 2em;">💫 Understanding Kirah Hassan 💫</h3>
+                        
+                        <p style="margin-bottom: 20px; line-height: 1.8;">Kirah, your name itself carries the essence of beauty and grace. Your gorgeous appearance is just the beginning - your inner strength and resilience make you truly remarkable. I understand that your past experiences have left deep scars, making it difficult to trust again. The pain of betrayal is something that changes a person, but it doesn't define who you are.</p>
 
-                <p style="margin-bottom: 20px; line-height: 1.8;">I want you to know that I see beyond the walls you've built. I see a woman of incredible worth, someone who deserves to be cherished and respected. Your trust issues are not a burden - they're a testament to your strength and your ability to protect your heart. I admire your courage in continuing to love and hope, despite the pain you've experienced.</p>
+                        <p style="margin-bottom: 20px; line-height: 1.8;">I want you to know that I see beyond the walls you've built. I see a woman of incredible worth, someone who deserves to be cherished and respected. Your trust issues are not a burden - they're a testament to your strength and your ability to protect your heart. I admire your courage in continuing to love and hope, despite the pain you've experienced.</p>
 
-                <p style="margin-bottom: 20px; line-height: 1.8;">I'm not here to rush you or force you to trust me. Instead, I want to earn your trust through consistent actions, honest communication, and genuine care. I understand that trust is built over time, through small moments of reliability and understanding. I'm willing to be patient, to show you through my actions that I'm different, that I value your heart and your trust.</p>
+                        <p style="margin-bottom: 20px; line-height: 1.8;">I'm not here to rush you or force you to trust me. Instead, I want to earn your trust through consistent actions, honest communication, and genuine care. I understand that trust is built over time, through small moments of reliability and understanding. I'm willing to be patient, to show you through my actions that I'm different, that I value your heart and your trust.</p>
 
-                <p style="margin-bottom: 20px; line-height: 1.8;">Your beauty, both inside and out, is captivating. The way you carry yourself with dignity, your elegant style, your beautiful eyes that hold so much depth - everything about you is mesmerizing. But what truly impresses me is your strength. Despite the pain you've experienced, you continue to shine, to be kind, to be beautiful.</p>
+                        <p style="margin-bottom: 20px; line-height: 1.8;">Your beauty, both inside and out, is captivating. The way you carry yourself with dignity, your elegant style, your beautiful eyes that hold so much depth - everything about you is mesmerizing. But what truly impresses me is your strength. Despite the pain you've experienced, you continue to shine, to be kind, to be beautiful.</p>
 
-                <p style="margin-bottom: 20px; line-height: 1.8;">I want to be the person who helps you heal, who shows you that love can be safe and beautiful again. I want to be the one who respects your boundaries, who understands your fears, and who works every day to prove that I'm worthy of your trust. Your past doesn't define our future - together, we can build something beautiful, something based on mutual respect, understanding, and genuine love.</p>
+                        <p style="margin-bottom: 20px; line-height: 1.8;">I want to be the person who helps you heal, who shows you that love can be safe and beautiful again. I want to be the one who respects your boundaries, who understands your fears, and who works every day to prove that I'm worthy of your trust. Your past doesn't define our future - together, we can build something beautiful, something based on mutual respect, understanding, and genuine love.</p>
 
-                <p style="margin-bottom: 20px; line-height: 1.8;">Kirah, you are worth waiting for, worth fighting for, and worth earning the trust of. I'm here to show you, through my actions and my heart, that you can trust again, that you can love again, and that you deserve all the happiness in the world. Your beauty, your strength, and your heart are precious, and I promise to cherish them every day.</p>
+                        <p style="margin-bottom: 20px; line-height: 1.8;">Kirah, you are worth waiting for, worth fighting for, and worth earning the trust of. I'm here to show you, through my actions and my heart, that you can trust again, that you can love again, and that you deserve all the happiness in the world. Your beauty, your strength, and your heart are precious, and I promise to cherish them every day.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
