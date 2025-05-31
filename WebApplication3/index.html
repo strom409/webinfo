@@ -714,57 +714,49 @@
 
         <!-- Momin Section -->
         <div id="momin-section" class="section">
-            <div class="section" style="padding: 40px; text-align: center; background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); color: white;">
-                <h2 style="font-size: 2.5em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">💖 Ira & Momin: A Beautiful Love Story 💖</h2>
+            <div class="section" id="intro-section">
+                <h2>💌 The Story of Our Beautiful Connection 💌</h2>
+                <p>In a world full of ordinary moments, I found someone extraordinary - someone known as <strong>Ishiqa</strong>. From the very first conversation, I felt something special - a connection that was meant to be.</p>
                 
-                <!-- Image Gallery -->
-                <div style="display: flex; gap: 20px; justify-content: center; margin: 40px 0; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
-                        <img src="https://th.bing.com/th/id/OIP.U2Haxp8KA3QPs1sxTZIfOAHaEK?rs=1&pid=ImgDetMain" 
-                             alt="Ira and Momin" 
-                             style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                <!-- Add Ira and Momin Buttons -->
+                <div style="display: flex; justify-content: center; gap: 20px; margin: 30px 0;">
+                    <button onclick="showLoveStory('ira')" style="padding: 15px 30px; background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                        <i class="fas fa-heart"></i> Ira's Love Story
+                    </button>
+                    <button onclick="showLoveStory('momin')" style="padding: 15px 30px; background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                        <i class="fas fa-heart"></i> Momin's Love Story
+                    </button>
+                </div>
+
+                <!-- Love Story Content (Initially Hidden) -->
+                <div id="ira-love-story" style="display: none; margin-top: 30px;">
+                    <div style="display: flex; gap: 20px; justify-content: center; margin: 40px 0; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                            <img src="https://th.bing.com/th/id/OIP.U2Haxp8KA3QPs1sxTZIfOAHaEK?rs=1&pid=ImgDetMain" 
+                                 alt="Ira and Momin" 
+                                 style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                            <img src="https://wallpapercave.com/wp/wp6585917.jpg" 
+                                 alt="Love Story" 
+                                 style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                            <img src="https://th.bing.com/th/id/OIP.YrynvzaRnCX8frPnucLTrgHaLH?rs=1&pid=ImgDetMain" 
+                                 alt="Special Moments" 
+                                 style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
                     </div>
-                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
-                        <img src="https://wallpapercave.com/wp/wp6585917.jpg" 
-                             alt="Love Story" 
-                             style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                    </div>
-                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
-                        <img src="https://th.bing.com/th/id/OIP.YrynvzaRnCX8frPnucLTrgHaLH?rs=1&pid=ImgDetMain" 
-                             alt="Special Moments" 
-                             style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-top: 20px;">
+                        <h3 style="color: #ff1493; margin-bottom: 20px; font-size: 1.8em;">💝 Ira & Momin's Love Story 💝</h3>
+                        <p style="line-height: 1.8; color: #333;">From the moment our paths crossed, I knew there was something special about you. Your smile, your kindness, and your beautiful heart captured mine completely. Every day with you is a blessing, and I cherish every moment we share together.</p>
                     </div>
                 </div>
 
-                <!-- Love Story Content -->
-                <div style="max-width: 1200px; margin: 0 auto; padding: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; backdrop-filter: blur(5px);">
-                    <div style="display: flex; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
-                        <!-- Left Column -->
-                        <div style="flex: 2; min-width: 300px;">
-                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
-                                <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #fff;">💝 Our Beautiful Journey</h3>
-                                <p style="line-height: 1.8; color: #fff; text-align: left;">From the moment our paths crossed, I knew there was something special about you. Your smile, your kindness, and your beautiful heart captured mine completely. Every day with you is a blessing, and I cherish every moment we share together.</p>
-                            </div>
-                            
-                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
-                                <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #fff;">💫 The Magic of Us</h3>
-                                <p style="line-height: 1.8; color: #fff; text-align: left;">Our love story is like a beautiful dream come true. The way we understand each other, support each other, and grow together makes our bond stronger every day. You are not just my love, but my best friend, my confidant, and my everything.</p>
-                            </div>
-                        </div>
-
-                        <!-- Right Column -->
-                        <div style="flex: 1; min-width: 300px;">
-                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px;">
-                                <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #fff;">💖 My Promise to You</h3>
-                                <p style="line-height: 1.8; color: #fff; text-align: left;">I promise to love you unconditionally, to be there for you in every moment, to cherish and respect you always. You are the most precious person in my life, and I will do everything to make you happy.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Special Message -->
-                    <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.2) 0%, rgba(255, 20, 147, 0.2) 100%); padding: 30px; border-radius: 15px; margin-top: 30px;">
-                        <h3 style="font-size: 2em; margin-bottom: 20px; color: #fff; font-family: 'Brush Script MT', cursive;">💝 A Message from My Heart 💝</h3>
-                        <p style="line-height: 1.8; color: #fff; font-size: 1.2em;">Ira, you are the most beautiful person I know, both inside and out. Your love has changed my life in ways I never thought possible. Every moment with you is a gift, and I am grateful for your love every single day. You are my present, my future, and my forever. I love you more than words can express.</p>
+                <div id="momin-love-story" style="display: none; margin-top: 30px;">
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px;">
+                        <h3 style="color: #ff1493; margin-bottom: 20px; font-size: 1.8em;">💖 Momin's Message 💖</h3>
+                        <p style="line-height: 1.8; color: #333;">Ira, you are the most beautiful person I know, both inside and out. Your love has changed my life in ways I never thought possible. Every moment with you is a gift, and I am grateful for your love every single day. You are my present, my future, and my forever. I love you more than words can express.</p>
                     </div>
                 </div>
             </div>
@@ -952,6 +944,20 @@
                     chatMessages.innerHTML += `<p><strong>Bot:</strong> Friendship is the foundation of every strong relationship. It's about being there for each other, sharing joys and sorrows, and growing together. 🤝</p>`;
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, 1000);
+            }
+        }
+
+        // Add new function for love story buttons
+        function showLoveStory(type) {
+            const iraStory = document.getElementById('ira-love-story');
+            const mominStory = document.getElementById('momin-love-story');
+            
+            if (type === 'ira') {
+                iraStory.style.display = 'block';
+                mominStory.style.display = 'none';
+            } else {
+                iraStory.style.display = 'none';
+                mominStory.style.display = 'block';
             }
         }
     </script>
