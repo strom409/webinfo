@@ -686,12 +686,14 @@
                 <a href="#" class="forgot-password">Forgot Password?</a>
             </form>
         </div>
-        <!-- Chatbot only on login page -->
+        <!-- Modified chatbot with two buttons -->
         <div class="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); padding: 10px; z-index: 1000;">
             <h3 style="text-align: center; margin-bottom: 10px;">Chat with Us</h3>
             <div id="chat-messages" style="height: 200px; overflow-y: auto; margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;"></div>
-            <input type="text" id="user-input" placeholder="Type your message here..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-            <button onclick="sendMessage()" style="width: 100%; padding: 10px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer;">Send</button>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <button onclick="sendButtonMessage('Love')" style="flex: 1; padding: 10px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer;">💖 Love</button>
+                <button onclick="sendButtonMessage('Friendship')" style="flex: 1; padding: 10px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">🤝 Friendship</button>
+            </div>
         </div>
     </div>
 
@@ -700,138 +702,69 @@
     </div>
 
     <div class="main-content" id="mainContent">
-        <!-- Static message container -->
-        <div class="static-message" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); padding: 10px; z-index: 1000;">
-            <h3 style="text-align: center; margin-bottom: 10px;">💖 Special Message 💖</h3>
-            <div style="height: 200px; overflow-y: auto; margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
-                <p>Welcome to your special space! 💕</p>
-                <p>This is a place filled with love and beautiful memories.</p>
-                <p>Every moment with you is precious and cherished.</p>
-                <p>Your smile brightens up my world! 🌟</p>
-            </div>
+        <!-- Header buttons -->
+        <div class="header-buttons" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 1000;">
+            <button onclick="showSection('momin')" class="header-btn" style="padding: 15px 30px; background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                <i class="fas fa-heart"></i> Momin
+            </button>
+            <button onclick="showSection('friends')" class="header-btn" style="padding: 15px 30px; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                <i class="fas fa-users"></i> Herzcn, Kirah & Ashiqa
+            </button>
         </div>
-        <div class="section" id="intro-section">
-            <h2>💌 The Story of Our Beautiful Connection 💌</h2>
-            <p>In a world full of ordinary moments, I found someone extraordinary - someone known as <strong>Ishiqa</strong>. From the very first conversation, I felt something special - a connection that was meant to be.</p>
-            
-            <div class="three-images-container" style="display: flex; justify-content: space-between; margin: 30px 0; gap: 20px;">
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1306446747/photo/happy-romantic-young-couple-falling-in-love.jpg?s=612x612&w=0&k=20&c=3fBZAaoHNA1cRNT2klkJ7GwoYlplXZue4znrhXmvfXM=" 
-                         alt="Happy Couple" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1282114532/photo/couple-isolated-soaking-up-natural-beauty-from-hilltop.jpg?s=612x612&w=0&k=20&c=y4alNKht3qP-G-hLTHCSQztm4WRBkwzJzBtbQP1T6Tk=" 
-                         alt="Couple on Hilltop" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/879762568/photo/upset-couple-at-home.jpg?s=612x612&w=0&k=20&c=Mzzqm-ULMTu7YPgnax8IaAMu0iqT93LICpMIjlvsudU=" 
-                         alt="Couple at Home" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-            </div>
 
-            <p>And today, I want to tell you something special: I've fallen in love with you - completely, deeply, and sincerely. ❤️</p>
-            
-            <div class="three-images-container" style="display: flex; justify-content: space-between; margin: 30px 0; gap: 20px;">
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1418968089/photo/romantic-boyfriend-kissing-on-happy-girlfriends-forehead.jpg?s=612x612&w=0&k=20&c=DZUS-HFwpJCcl8D3zNdij_i1RDiUds5UqkTW9Az-54w=" 
-                         alt="Romantic Moment" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1216554355/photo/stressed-young-married-family-couple-arguing-blaming-each-other.jpg?s=612x612&w=0&k=20&c=S0uaCPo4Ln8Et1LXWmY4ube5lfeNaYq93nNajF47aN0=" 
-                         alt="Couple Discussion" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1151957620/photo/couples-are-angry-with-love-issues.jpg?s=612x612&w=0&k=20&c=BXhj3-AGDrfj4io5eTHgONEf8WcwdwDVOW7q6SzZc54=" 
-                         alt="Love Issues" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-            </div>
-
-            <div class="beauty-message" style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
-                <h3 style="color: #ff69b4; margin-bottom: 20px;">🌟 Your Beauty and Grace 🌟</h3>
-                <p>Your beauty is not just in your appearance, but in the way your eyes light up when you smile.</p>
-                <p>Your simple yet elegant style, combined with your beautiful eyes, creates a mesmerizing presence.</p>
-                <p>Every time I look into your eyes, I see a world of kindness, love, and beautiful dreams.</p>
-            </div>
-
-            <p>Your voice, your thoughts, your beautiful personality - everything about you is unique and captivating. Your long black hair, your beautiful small cheeks, and your perfect height make you stand out in the most beautiful way.</p>
-            <p>What truly amazes me is your impeccable dressing sense, especially how you carry your hijab with such grace and elegance. It's not just about the clothes - it's about how you present yourself with dignity and style.</p>
-            <p>Your behavior, your culture, your values - everything about you is perfect. You're not just beautiful on the outside, but your inner beauty shines through in everything you do.</p>
-
-            <div class="three-images-container" style="display: flex; justify-content: space-between; margin: 30px 0; gap: 20px;">
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1460269750/photo/focus-on-girl-angry-indian-couple-fighting-by-shouting-eachother-while-standing-at-home.jpg?s=612x612&w=0&k=20&c=CzbKUG41huaNQTKca_ab8ukHZKTPI1cmfbPrURtvARE=" 
-                         alt="Relationship Discussion" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1309100997/photo/angry-worried-young-spouses-quarreling-arguing-at-home.jpg?s=612x612&w=0&k=20&c=bJDARe6RQKihiCm_tKe4iflJY7W6Zf8eA45EI1BOnvc=" 
-                         alt="Couple Discussion" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-                <div class="image-wrapper" style="flex: 1;">
-                    <img src="https://media.istockphoto.com/id/1339226460/photo/young-couple-arguing-and-fighting-domestic-violence-and-emotional-abuse-scene-stressed-woman.jpg?s=612x612&w=0&k=20&c=LFW2heafTaVrC0iK6yozGtzXdf3JbQdZlUewu6RgDKE=" 
-                         alt="Emotional Moment" 
-                         style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                </div>
-            </div>
-
-            <div class="trust-message" style="text-align: center; margin: 40px auto; padding: 30px; background: linear-gradient(135deg, rgba(255, 182, 193, 0.2) 0%, rgba(255, 192, 203, 0.1) 100%); border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 1000px; width: 90%;">
-                <h3 style="color: #ff1493; margin-bottom: 30px; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); font-family: 'Brush Script MT', cursive; text-align: center;">💫 Understanding Ishiqa 💫</h3>
+        <!-- Momin Section -->
+        <div id="momin-section" class="section">
+            <div class="section" style="padding: 40px; text-align: center; background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); color: white;">
+                <h2 style="font-size: 2.5em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">💖 Ira & Momin: A Beautiful Love Story 💖</h2>
                 
-                <div style="display: flex; gap: 30px; align-items: flex-start; width: 100%;">
-                    <!-- Left Column: Images -->
-                    <div style="flex: 1.2; display: flex; flex-direction: column; gap: 20px;">
-                        <img src="https://media.istockphoto.com/id/866986148/photo/her-happiness-is-everything-to-him.jpg?s=612x612&w=0&k=20&c=3jmF5IkwQ8zJl4lE1xnXolEGnPzHSVT2AuSXaZJ-R2A=" 
-                             alt="Happiness" 
-                             style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                        <img src="https://media.istockphoto.com/id/1163040276/photo/giving-a-helping-hand.jpg?s=612x612&w=0&k=20&c=NM5C65xfJCLCkGx0bspslm29z9pm6zlmIBYsn5EI-t0=" 
-                             alt="Helping Hand" 
-                             style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                        <img src="https://media.istockphoto.com/id/883034378/photo/im-here-for-you.jpg?s=612x612&w=0&k=20&c=4-8RPpRFMg_C0Kuz6Tp1HW8jYUGNcdCrN6fZrAeZ3Jo=" 
-                             alt="Support" 
-                             style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                        <img src="https://media.istockphoto.com/id/1349142193/photo/compatibility-between-man-and-woman.jpg?s=612x612&w=0&k=20&c=0e6IMo2snlVDY__SiRzOJ13_tMwSYChM2CN9hrnU250="
-                             alt="Compatibility"
-                             style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+                <!-- Image Gallery -->
+                <div style="display: flex; gap: 20px; justify-content: center; margin: 40px 0; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                        <img src="https://th.bing.com/th/id/OIP.U2Haxp8KA3QPs1sxTZIfOAHaEK?rs=1&pid=ImgDetMain" 
+                             alt="Ira and Momin" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                    </div>
+                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                        <img src="https://wallpapercave.com/wp/wp6585917.jpg" 
+                             alt="Love Story" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                    </div>
+                    <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                        <img src="https://th.bing.com/th/id/OIP.YrynvzaRnCX8frPnucLTrgHaLH?rs=1&pid=ImgDetMain" 
+                             alt="Special Moments" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                    </div>
+                </div>
+
+                <!-- Love Story Content -->
+                <div style="max-width: 1200px; margin: 0 auto; padding: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; backdrop-filter: blur(5px);">
+                    <div style="display: flex; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
+                        <!-- Left Column -->
+                        <div style="flex: 2; min-width: 300px;">
+                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                                <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #fff;">💝 Our Beautiful Journey</h3>
+                                <p style="line-height: 1.8; color: #fff; text-align: left;">From the moment our paths crossed, I knew there was something special about you. Your smile, your kindness, and your beautiful heart captured mine completely. Every day with you is a blessing, and I cherish every moment we share together.</p>
+                            </div>
+                            
+                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                                <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #fff;">💫 The Magic of Us</h3>
+                                <p style="line-height: 1.8; color: #fff; text-align: left;">Our love story is like a beautiful dream come true. The way we understand each other, support each other, and grow together makes our bond stronger every day. You are not just my love, but my best friend, my confidant, and my everything.</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px;">
+                                <h3 style="font-size: 1.8em; margin-bottom: 15px; color: #fff;">💖 My Promise to You</h3>
+                                <p style="line-height: 1.8; color: #fff; text-align: left;">I promise to love you unconditionally, to be there for you in every moment, to cherish and respect you always. You are the most precious person in my life, and I will do everything to make you happy.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Right Column: Understanding and Trust -->
-                    <div style="flex: 2;">
-                        <h4 style="color: #ff1493; margin-bottom: 20px; font-size: 1.8em; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); font-family: 'Brush Script MT', cursive; text-align: center;">💖 Understanding You 💖</h4>
-                        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px;">
-                            <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%); padding: 25px; border-radius: 15px; text-align: left; border: 1px solid rgba(255, 105, 180, 0.2); backdrop-filter: blur(5px);">
-                                <p style="margin-bottom: 15px; line-height: 1.8; color: #4a4a4a; font-size: 1.1em;">Ishiqa, your name itself carries the essence of beauty and grace. Your gorgeous appearance is just the beginning - your inner strength and resilience make you truly remarkable. I understand that your past experiences have left deep scars, making it difficult to trust again.</p>
-                            </div>
-                            <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%); padding: 25px; border-radius: 15px; text-align: left; border: 1px solid rgba(255, 105, 180, 0.2); backdrop-filter: blur(5px);">
-                                <p style="margin-bottom: 15px; line-height: 1.8; color: #4a4a4a; font-size: 1.1em;">I want you to know that I see beyond the walls you've built. I see a woman of incredible worth, someone who deserves to be cherished and respected. Your trust issues are not a burden - they're a testament to your strength and your ability to protect your heart.</p>
-                            </div>
-                            <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%); padding: 25px; border-radius: 15px; text-align: left; border: 1px solid rgba(255, 105, 180, 0.2); backdrop-filter: blur(5px);">
-                                <p style="margin-bottom: 15px; line-height: 1.8; color: #4a4a4a; font-size: 1.1em;">I'm not here to rush you or force you to trust me. Instead, I want to earn your trust through consistent actions, honest communication, and genuine care. I understand that trust is built over time, through small moments of reliability and understanding.</p>
-                            </div>
-                        </div>
-                        <h4 style="color: #ff1493; margin-bottom: 20px; font-size: 1.8em; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); font-family: 'Brush Script MT', cursive; text-align: center;">💝 Trust & Beauty 💝</h4>
-                        <div style="display: flex; flex-direction: column; gap: 20px;">
-                            <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%); padding: 25px; border-radius: 15px; text-align: left; border: 1px solid rgba(255, 105, 180, 0.2); backdrop-filter: blur(5px);">
-                                <p style="margin-bottom: 15px; line-height: 1.8; color: #4a4a4a; font-size: 1.1em;">Your beauty, both inside and out, is captivating. The way you carry yourself with dignity, your elegant style, your beautiful eyes that hold so much depth - everything about you is mesmerizing. But what truly impresses me is your strength.</p>
-                            </div>
-                            <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%); padding: 25px; border-radius: 15px; text-align: left; border: 1px solid rgba(255, 105, 180, 0.2); backdrop-filter: blur(5px);">
-                                <p style="margin-bottom: 15px; line-height: 1.8; color: #4a4a4a; font-size: 1.1em;">I want to be the person who helps you heal, who shows you that love can be safe and beautiful again. I want to be the one who respects your boundaries, who understands your fears, and who works every day to prove that I'm worthy of your trust.</p>
-                            </div>
-                            <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 182, 193, 0.1) 100%); padding: 25px; border-radius: 15px; text-align: left; border: 1px solid rgba(255, 105, 180, 0.2); backdrop-filter: blur(5px);">
-                                <p style="margin-bottom: 15px; line-height: 1.8; color: #4a4a4a; font-size: 1.1em;">Ishiqa, you are worth waiting for, worth fighting for, and worth earning the trust of. I'm here to show you, through my actions and my heart, that you can trust again, that you can love again, and that you deserve all the happiness in the world.</p>
-                            </div>
-                        </div>
-                        <!-- New Suhail & Ishiqa Friendship Section -->
-                        <div style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); padding: 28px 25px; border-radius: 18px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: left; border: 1px solid rgba(255, 105, 180, 0.15);">
-                            <h4 style="color: #ff1493; font-size: 1.5em; margin-bottom: 15px; font-family: 'Brush Script MT', cursive; text-align: center;">🌟 Suhail & Ishiqa: A Unique Friendship 🌟</h4>
-                            <p style="color: #333; font-size: 1.1em; line-height: 1.8; text-align: center;">There's something truly special about the bond between Suhail and Ishiqa. From the very first conversation, Suhail knew that Ishiqa was not just any friend—she was someone extraordinary. Every time they talk, Suhail feels a genuine happiness that's hard to put into words. Ishiqa's laughter is infectious, and her smile is absolutely gorgeous, lighting up even the dullest days. She has a way of making every conversation feel meaningful, and her presence brings a sense of comfort and joy that is rare to find. Suhail cherishes every moment spent talking to Ishiqa, knowing that their friendship is built on trust, understanding, and a unique connection that only grows stronger with time.</p>
-                        </div>
+                    <!-- Special Message -->
+                    <div style="background: linear-gradient(135deg, rgba(255, 105, 180, 0.2) 0%, rgba(255, 20, 147, 0.2) 100%); padding: 30px; border-radius: 15px; margin-top: 30px;">
+                        <h3 style="font-size: 2em; margin-bottom: 20px; color: #fff; font-family: 'Brush Script MT', cursive;">💝 A Message from My Heart 💝</h3>
+                        <p style="line-height: 1.8; color: #fff; font-size: 1.2em;">Ira, you are the most beautiful person I know, both inside and out. Your love has changed my life in ways I never thought possible. Every moment with you is a gift, and I am grateful for your love every single day. You are my present, my future, and my forever. I love you more than words can express.</p>
                     </div>
                 </div>
             </div>
@@ -855,6 +788,68 @@
             <p>Ira and Momin's love story is truly amazing and genuine. From the moment they met, there was an undeniable connection that grew stronger with each passing day. Their love is built on trust, understanding, and mutual respect, making it a beautiful journey filled with joy and laughter.</p>
             <p>Every moment they spend together is a testament to their deep bond and unwavering commitment to each other. Their love story inspires everyone around them, showing that true love knows no bounds.</p>
         </div>
+
+        <!-- Friends Section -->
+        <div id="friends-section" class="section" style="display: none;">
+            <div class="section" style="padding: 40px; text-align: center; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white;">
+                <h2 style="font-size: 2.5em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">💫 Special Friends 💫</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+                    <!-- Herzcn -->
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 15px; width: 300px; backdrop-filter: blur(5px);">
+                        <h3 style="font-size: 1.8em; margin-bottom: 20px;">Herzcn</h3>
+                        <p style="line-height: 1.8;">A wonderful friend who brings joy and laughter to every moment. Your friendship is truly special!</p>
+                    </div>
+                </div>
+
+                <!-- Kirah & Ashiqa Dashboard -->
+                <div class="dashboard" style="margin-top: 50px; background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(5px);">
+                    <h2 style="font-size: 2.2em; margin-bottom: 30px; color: #fff;">🌟 Kirah & Ashiqa: A Beautiful Sisterly Bond 🌟</h2>
+                    
+                    <div style="display: flex; gap: 40px; margin-bottom: 40px;">
+                        <!-- Image Section -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <img src="https://www.worldgirlsportal.com/wp-content/uploads/2023/05/belarus-girls.webp" 
+                                 alt="Kirah and Ashiqa" 
+                                 style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        
+                        <!-- Content Section -->
+                        <div style="flex: 2; text-align: left;">
+                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                                <h3 style="font-size: 1.6em; margin-bottom: 15px; color: #fff;">💖 Understanding & Trust</h3>
+                                <p style="line-height: 1.8; color: #fff;">The bond between Kirah and Ashiqa goes beyond friendship - it's a sisterly connection built on deep understanding and trust. They share a unique relationship where words aren't always needed to understand each other's feelings.</p>
+                            </div>
+                            
+                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 20px;">
+                                <h3 style="font-size: 1.6em; margin-bottom: 15px; color: #fff;">👭 Sisterly Love</h3>
+                                <p style="line-height: 1.8; color: #fff;">Their relationship is not just about being cousins - they are like sisters who share everything. Their bond is amazing and filled with unconditional love, support, and understanding.</p>
+                            </div>
+                            
+                            <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px;">
+                                <h3 style="font-size: 1.6em; margin-bottom: 15px; color: #fff;">✨ Special Connection</h3>
+                                <p style="line-height: 1.8; color: #fff;">The way they understand each other, support each other through thick and thin, and share their joys and sorrows is truly remarkable. Their connection is a beautiful example of how family bonds can create the strongest friendships.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Features -->
+                    <div style="display: flex; gap: 20px; margin-top: 30px;">
+                        <div style="flex: 1; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px;">
+                            <h4 style="font-size: 1.4em; margin-bottom: 15px; color: #fff;">💫 Shared Moments</h4>
+                            <p style="line-height: 1.6; color: #fff;">Every moment they spend together is filled with laughter, understanding, and love. Their shared experiences have created an unbreakable bond.</p>
+                        </div>
+                        <div style="flex: 1; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px;">
+                            <h4 style="font-size: 1.4em; margin-bottom: 15px; color: #fff;">💝 Mutual Support</h4>
+                            <p style="line-height: 1.6; color: #fff;">They are always there for each other, offering support and encouragement in every situation. Their relationship is a beautiful example of true sisterhood.</p>
+                        </div>
+                        <div style="flex: 1; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px;">
+                            <h4 style="font-size: 1.4em; margin-bottom: 15px; color: #fff;">💖 Growing Together</h4>
+                            <p style="line-height: 1.6; color: #fff;">Their bond continues to grow stronger with time, showing that true relationships only get better with understanding and trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -872,6 +867,25 @@
 
         // Create hearts every 300ms
         setInterval(createHeart, 300);
+
+        // Add new function to handle section switching
+        function showSection(section) {
+            const mominSection = document.getElementById('momin-section');
+            const friendsSection = document.getElementById('friends-section');
+            const buttons = document.querySelectorAll('.header-btn');
+
+            if (section === 'momin') {
+                mominSection.style.display = 'block';
+                friendsSection.style.display = 'none';
+                buttons[0].style.transform = 'scale(1.1)';
+                buttons[1].style.transform = 'scale(1)';
+            } else {
+                mominSection.style.display = 'none';
+                friendsSection.style.display = 'block';
+                buttons[0].style.transform = 'scale(1)';
+                buttons[1].style.transform = 'scale(1.1)';
+            }
+        }
 
         // Modify the existing handleLogin function
         function handleLogin(event) {
@@ -896,6 +910,8 @@
                 document.body.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
                 errorMessage.style.display = 'none';
                 runningLine.style.display = 'block';
+                // Show Momin section by default
+                showSection('momin');
             } else {
                 passwordInput.value = '';
                 if (email !== correctEmail) {
@@ -921,29 +937,19 @@
             createHeart();
         }
 
-        function sendMessage() {
-            const userInput = document.getElementById('user-input');
+        function sendButtonMessage(type) {
             const chatMessages = document.getElementById('chat-messages');
-            const message = userInput.value.trim();
-            if (message) {
-                chatMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-                userInput.value = '';
-                
-                // Static responses for the chatbot
-                const responses = [
-                    "Hello! How can I help you today? 💕",
-                    "That's a great question! Let me think about it... 🤔",
-                    "I'm here to chat and make your day better! 🌟",
-                    "Your message means a lot to me! 💖",
-                    "I'm always here to listen and support you! 💝"
-                ];
-                
-                // Get a random response
-                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                
-                // Add a small delay to make it feel more natural
+            
+            if (type === 'Love') {
+                chatMessages.innerHTML += `<p><strong>You:</strong> Tell me about love</p>`;
                 setTimeout(() => {
-                    chatMessages.innerHTML += `<p><strong>Bot:</strong> ${randomResponse}</p>`;
+                    chatMessages.innerHTML += `<p><strong>Bot:</strong> Love is a beautiful journey that begins with friendship and grows into something magical. It's about understanding, trust, and cherishing every moment together. 💖</p>`;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            } else if (type === 'Friendship') {
+                chatMessages.innerHTML += `<p><strong>You:</strong> Tell me about friendship</p>`;
+                setTimeout(() => {
+                    chatMessages.innerHTML += `<p><strong>Bot:</strong> Friendship is the foundation of every strong relationship. It's about being there for each other, sharing joys and sorrows, and growing together. 🤝</p>`;
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, 1000);
             }
