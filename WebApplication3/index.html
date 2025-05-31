@@ -680,6 +680,19 @@
                 font-size: 0.95em !important;
                 border-radius: 4px !important;
             }
+            /* Responsive for Ira & Momin's Love Story images and message */
+            #ira-love-story > div[style*='display: flex'] {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            #ira-love-story img {
+                width: 100% !important;
+                max-width: 220px !important;
+                margin: 0 auto !important;
+            }
+            #ira-love-story h4, #ira-love-story p {
+                text-align: center !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -842,6 +855,17 @@
                     <div style="background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
                         <h3 style="color: #ff1493; margin-bottom: 20px; font-size: 1.8em;">💝 Ira & Momin's Love Story 💝</h3>
                         <p style="line-height: 1.8; color: #333;">From the moment our paths crossed, I knew there was something special about you. Your smile, your kindness, and your beautiful heart captured mine completely. Every day with you is a blessing, and I cherish every moment we share together.</p>
+                        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 30px; flex-wrap: wrap;">
+                            <div style="flex: 2; min-width: 220px;">
+                                <h4 style="color: #ff1493; margin-bottom: 15px; font-size: 1.3em;">💖 Love, Trust & Happiness 💖</h4>
+                                <p style="line-height: 1.8; color: #333;">The love between Ira and Momin is built on true affection and unwavering trust. Ira's love for Momin is pure and genuine—she shows her love through every little gesture, every smile, and every word. Her trust in Momin is the foundation of their happiness, and together they create a world filled with joy, laughter, and endless support. Ira's presence brings light into Momin's life, and their bond grows stronger with each passing day.</p>
+                            </div>
+                            <div style="flex: 3; display: flex; flex-direction: column; gap: 12px; align-items: flex-end;">
+                                <img src="https://i.pinimg.com/736x/d9/cf/c5/d9cfc5c4135ebee9b56b3db46faccf49.jpg" alt="Ira and Momin Love 1" style="width: 120px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+                                <img src="https://i.ytimg.com/vi/oKHpI0pm2xs/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLBrVX76Qhji3rlVezwjSRut4XZ0Mg" alt="Ira and Momin Love 2" style="width: 120px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+                                <img src="https://i.pinimg.com/736x/f0/49/c9/f049c93ecf154375f0fa24527e992775.jpg" alt="Ira and Momin Love 3" style="width: 120px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Ishiqa's Beauty and Intelligence Section -->
@@ -1261,9 +1285,12 @@
         });
 
         function scrollToFriendshipStory() {
-            const introSection = document.getElementById('intro-section');
-            if (introSection) {
-                introSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Switch to the main (Momin) section
+            showSection('momin');
+            // Scroll to the top of the main content
+            const mainContent = document.getElementById('mainContent');
+            if (mainContent) {
+                mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
     </script>
