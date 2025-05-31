@@ -551,6 +551,7 @@
             .section {
                 border-radius: 8px;
                 margin: 10px auto;
+                padding: 10px !important;
             }
             #intro-section {
                 padding: 20px;
@@ -620,84 +621,147 @@
             .trust-message h4, .trust-message p {
                 text-align: center !important;
             }
-
-            /* New responsive styles for Suhii & Kirah's section */
-            .section > div[style*='display: flex'] {
+            /* Responsive for new sections */
+            .image-text-pair, .dashboard > div[style*='display: flex'], .section > div[style*='display: flex'], .section > div[style*='gap: 30px'], .section > div[style*='gap: 40px'] {
                 flex-direction: column !important;
                 gap: 20px !important;
+                align-items: stretch !important;
             }
-            .section > div[style*='display: flex'] > div {
+            .image-text-pair .image-container, .image-text-pair .text-content, .section img, .section > div {
                 width: 100% !important;
+                max-width: 100% !important;
             }
             .section img {
-                max-height: 300px !important;
+                max-height: 250px !important;
                 object-fit: cover !important;
             }
             .section h3 {
-                font-size: 1.6em !important;
+                font-size: 1.4em !important;
                 text-align: center !important;
             }
             .section h4 {
-                font-size: 1.3em !important;
+                font-size: 1.2em !important;
                 text-align: center !important;
             }
             .section p {
                 text-align: center !important;
                 font-size: 1em !important;
             }
+            .header-buttons {
+                flex-direction: column !important;
+                gap: 10px !important;
+                top: 10px !important;
+            }
+            .header-btn {
+                padding: 10px 0 !important;
+                font-size: 0.95em !important;
+                border-radius: 15px !important;
+            }
+            .chatbot-container {
+                width: 90vw !important;
+                min-width: unset !important;
+                max-width: 95vw !important;
+                left: 50% !important;
+                right: unset !important;
+                transform: translateX(-50%) !important;
+                bottom: 10px !important;
+                padding: 5px 5px 10px 5px !important;
+                height: 220px !important;
+            }
+            #chat-messages {
+                height: 90px !important;
+                font-size: 0.95em !important;
+            }
+            .login-container {
+                margin-bottom: 250px !important;
+            }
+            .chatbot-container button {
+                padding: 7px 0 !important;
+                font-size: 0.95em !important;
+                border-radius: 4px !important;
+            }
         }
 
         @media (max-width: 480px) {
             #intro-section h2 {
-                font-size: 1.8em;
+                font-size: 1.2em;
             }
             .message-container h2 {
-                font-size: 1.6em;
+                font-size: 1.1em;
             }
             .oip-message h2 {
-                font-size: 1.6em;
+                font-size: 1.1em;
             }
             .love-message-content h2 {
-                font-size: 1.8em;
+                font-size: 1.2em;
             }
             .trust-message h3 {
-                font-size: 1.6em;
+                font-size: 1.1em;
             }
             .photo-message h3 {
-                font-size: 1.6em;
+                font-size: 1.1em;
             }
             .feelings-content h2 {
-                font-size: 1.8em;
+                font-size: 1.2em;
             }
             .login-title {
-                font-size: 1.8em;
+                font-size: 1.1em;
             }
             .footer-buttons {
                 flex-direction: column;
                 gap: 10px;
             }
-
-            /* Additional mobile optimizations for Suhii & Kirah's section */
             .section {
-                padding: 15px !important;
+                padding: 8px !important;
             }
             .section > div[style*='background: rgba(255, 255, 255, 0.1)'] {
-                padding: 15px !important;
+                padding: 8px !important;
             }
             .section img {
-                max-height: 250px !important;
+                max-height: 150px !important;
             }
             .section h3 {
-                font-size: 1.4em !important;
-                margin-bottom: 15px !important;
-            }
-            .section h4 {
-                font-size: 1.2em !important;
+                font-size: 1em !important;
                 margin-bottom: 10px !important;
             }
-            .section p {
+            .section h4 {
                 font-size: 0.95em !important;
-                line-height: 1.6 !important;
+                margin-bottom: 8px !important;
+            }
+            .section p {
+                font-size: 0.9em !important;
+                line-height: 1.4 !important;
+            }
+            .header-buttons {
+                top: 5px !important;
+            }
+            .chatbot-container {
+                width: 98vw !important;
+                min-width: unset !important;
+                max-width: 99vw !important;
+                left: 50% !important;
+                right: unset !important;
+                transform: translateX(-50%) !important;
+                bottom: 5px !important;
+                padding: 3px 3px 8px 3px !important;
+                height: 170px !important;
+            }
+            #chat-messages {
+                height: 60px !important;
+                font-size: 0.9em !important;
+            }
+            .login-container {
+                margin-bottom: 180px !important;
+            }
+            .chatbot-container button {
+                padding: 5px 0 !important;
+                font-size: 0.85em !important;
+                border-radius: 3px !important;
+            }
+            .header-btn {
+                padding: 7px 0 !important;
+                font-size: 0.85em !important;
+                border-radius: 12px !important;
             }
         }
 
@@ -872,6 +936,9 @@
 
         <!-- Friends Section -->
         <div id="friends-section" class="section" style="display: none;">
+            <button onclick="scrollToFriendshipStory()" style="margin-bottom: 25px; padding: 12px 28px; background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: all 0.3s ease;">
+                <i class="fas fa-arrow-left"></i> Back to the Story of Beautiful Friendship
+            </button>
             <div class="section" style="padding: 40px; text-align: center; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white;">
                 <h2 style="font-size: 2.5em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">💫 Special Friends 💫</h2>
                 <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
@@ -1192,6 +1259,13 @@
                 }
             });
         });
+
+        function scrollToFriendshipStory() {
+            const introSection = document.getElementById('intro-section');
+            if (introSection) {
+                introSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
     </script>
 </body>
 </html>
