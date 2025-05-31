@@ -686,6 +686,13 @@
                 <a href="#" class="forgot-password">Forgot Password?</a>
             </form>
         </div>
+        <!-- Chatbot only on login page -->
+        <div class="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); padding: 10px; z-index: 1000;">
+            <h3 style="text-align: center; margin-bottom: 10px;">Chat with Us</h3>
+            <div id="chat-messages" style="height: 200px; overflow-y: auto; margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;"></div>
+            <input type="text" id="user-input" placeholder="Type your message here..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+            <button onclick="sendMessage()" style="width: 100%; padding: 10px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer;">Send</button>
+        </div>
     </div>
 
     <div class="running-line" id="runningLine">
@@ -693,6 +700,16 @@
     </div>
 
     <div class="main-content" id="mainContent">
+        <!-- Static message container -->
+        <div class="static-message" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); padding: 10px; z-index: 1000;">
+            <h3 style="text-align: center; margin-bottom: 10px;">💖 Special Message 💖</h3>
+            <div style="height: 200px; overflow-y: auto; margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                <p>Welcome to your special space! 💕</p>
+                <p>This is a place filled with love and beautiful memories.</p>
+                <p>Every moment with you is precious and cherished.</p>
+                <p>Your smile brightens up my world! 🌟</p>
+            </div>
+        </div>
         <div class="section" id="intro-section">
             <h2>💌 The Story of Our Beautiful Connection 💌</h2>
             <p>In a world full of ordinary moments, I found someone extraordinary - someone known as <strong>Ishiqa</strong>. From the very first conversation, I felt something special - a connection that was meant to be.</p>
@@ -840,13 +857,6 @@
         </div>
     </div>
 
-    <div class="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); padding: 10px; z-index: 1000;">
-        <h3 style="text-align: center; margin-bottom: 10px;">Chat with Us</h3>
-        <div id="chat-messages" style="height: 200px; overflow-y: auto; margin-bottom: 10px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;"></div>
-        <input type="text" id="user-input" placeholder="Type your message here..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-        <button onclick="sendMessage()" style="width: 100%; padding: 10px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer;">Send</button>
-    </div>
-
     <script>
         // Update the heart animation code
         function createHeart() {
@@ -918,27 +928,24 @@
             if (message) {
                 chatMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
                 userInput.value = '';
-                // Call OpenAI API
-                fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer your-api-key-here',
-                    },
-                    body: JSON.stringify({
-                        model: 'gpt-4',
-                        messages: [{ role: 'user', content: message }],
-                    }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const botResponse = data.choices[0].message.content;
-                    chatMessages.innerHTML += `<p><strong>Bot:</strong> ${botResponse}</p>`;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    chatMessages.innerHTML += `<p><strong>Bot:</strong> Sorry, I encountered an error. Please try again later.</p>`;
-                });
+                
+                // Static responses for the chatbot
+                const responses = [
+                    "Hello! How can I help you today? 💕",
+                    "That's a great question! Let me think about it... 🤔",
+                    "I'm here to chat and make your day better! 🌟",
+                    "Your message means a lot to me! 💖",
+                    "I'm always here to listen and support you! 💝"
+                ];
+                
+                // Get a random response
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                
+                // Add a small delay to make it feel more natural
+                setTimeout(() => {
+                    chatMessages.innerHTML += `<p><strong>Bot:</strong> ${randomResponse}</p>`;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
             }
         }
     </script>
