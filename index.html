@@ -1,3 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories of Uniqueness</title>
+    <style>
+        .buttons-container {
+            display: flex;
+            gap: 10px; /* Adds space between buttons */
+            margin-top: 20px; /* Adds some space above the buttons */
+        }
+
+        .buttons-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Her Journey of Brilliance and Beauty</h1>
+
+    <p>
+        Meet Uzma, a young woman whose uniqueness shone brightly from an early age.
+        Her dedication to her studies was unparalleled, leading her to not just complete her B.Tech,
+        but to excel with distinction, showcasing an extraordinary intellect that left her peers in awe.
+        Beyond her academic prowess, Uzma possessed a captivating beauty that was as profound as her mind,
+        making her an inspiration to all who knew her. Her story is a testament to the power of intelligence
+        and grace intertwined.
+    </p>
+
+    <p>
+        Then there's Priya, whose path was paved with an unwavering pursuit of knowledge and an innate ability
+        to grasp complex concepts. Her journey through B.Tech was marked by innovative projects and a relentless
+        curiosity, solidifying her reputation as remarkably intelligent. Off campus, her radiant beauty
+        and kind spirit were equally celebrated. Priya's narrative reminds us that true uniqueness
+        lies in the harmonious blend of sharp intellect, hard work, and inherent charm.
+    </p>
+
+    <div class="buttons-container">
+        <button id="proposeBtn">Propose</button>
+        <button id="friendBtn">Friend</button>
+    </div>
+
+    <div id="messageContainer"></div>
+
+    <script>
+        const proposeBtn = document.getElementById('proposeBtn');
+        const friendBtn = document.getElementById('friendBtn');
+        const messageContainer = document.getElementById('messageContainer');
+
+        proposeBtn.addEventListener('click', () => {
+            messageContainer.innerHTML = `
+                <p>My dearest, my heart beats only for you. Will you do me the honor of being mine forever?</p>
+                <button id="acceptBtn">Accept</button>
+                <button id="rejectBtn">Reject</button>
+            `;
+
+            const acceptBtn = document.getElementById('acceptBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+
+            acceptBtn.addEventListener('click', () => {
+                messageContainer.innerHTML = `
+                    <p>Thank you, my love! You've made me the happiest person alive. Every day with you will be a dream come true.</p>
+                `;
+            });
+
+            rejectBtn.addEventListener('click', () => {
+                messageContainer.innerHTML = `
+                    <p>I understand. Let's cherish our friendship then. You'll always be a dear friend to me.</p>
+                `;
+            });
+        });
+
+        friendBtn.addEventListener('click', () => {
+            messageContainer.innerHTML = `
+                <p>Friendship is a beautiful bond, and I value ours deeply. Always here for you! Through thick and thin, count on me.</p>
+            `;
+        });
+    </script>
+
     <!-- Past Relationship Section -->
     <section class="section past-relationship">
         <div class="container">
@@ -31,3 +113,5 @@
     </div>
 
     <!-- Footer --> 
+</body>
+</html> 
