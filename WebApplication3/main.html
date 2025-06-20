@@ -1,86 +1,3 @@
-﻿<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login - Uzma's Special Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            color: #ff4081;
-        }
-
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            padding: 12px 25px;
-            font-size: 1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #ff4081;
-            color: white;
-            transition: 0.3s ease;
-        }
-
-            button:hover {
-                background-color: #e73370;
-            }
-    </style>
-</head>
-<body>
-    <div class="login-container">
-        <h2>Welcome, Please Log In 💖</h2>
-        <form onsubmit="login(event)">
-            <input type="text" id="username" placeholder="Enter your name" required><br>
-            <input type="password" id="password" placeholder="Enter secret pass" required><br>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <script>
-        function login(event) {
-            event.preventDefault();
-            const username = document.getElementById("username").value.trim();
-            const password = document.getElementById("password").value.trim();
-
-            if (username.toLowerCase() === "uzma12@gmail.com" && password === "uzma@12") {
-                window.location.href = "main.html";
-            } else {
-                alert("Incorrect username or password. Please try again 💛");
-            }
-        }
-    </script>
-</body>
-</html>
-
-<!-- main.html (save this as a separate file in the same directory) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,7 +14,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         .container {
             max-width: 800px;
             margin-top: 40px;
@@ -107,30 +23,25 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             text-align: center;
         }
-
         h1 {
             color: #ff4081;
         }
-
         p {
             font-size: 1.1em;
             line-height: 1.8;
             color: #333;
         }
-
         img {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 20px;
         }
-
         .buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin: 20px 0;
         }
-
         button {
             padding: 12px 25px;
             font-size: 1em;
@@ -141,15 +52,12 @@
             color: white;
             transition: 0.3s ease;
         }
-
-            button:hover {
-                background-color: #e73370;
-            }
-
+        button:hover {
+            background-color: #e73370;
+        }
         .hidden {
             display: none;
         }
-
         .message-box {
             margin-top: 20px;
             padding: 20px;
@@ -163,9 +71,8 @@
 </head>
 <body>
     <div class="container">
+        <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.58_55e37e50.jpg" alt="Uzma & Suhail">
         <h1>💖 Uzma, This Is Just For You 💖</h1>
-        <img src="https://img.freepik.com/free-photo/young-couple-talking-cafe_1157-338.jpg?w=900" alt="Uzma & Suhail">
-
         <div id="story1">
             <h2>🌟 How We First Met 🌟</h2>
             <p>It all began with a voice — your voice, Uzma. A casual Clubhouse room turned into a magical 4-hour talk that made me feel like we knew each other forever.</p>
@@ -173,7 +80,6 @@
             <p>Then came the twist — you blocked me. It hurt. But just after two days, you reappeared with a new ID. I recognized your voice instantly. How could I not?</p>
             <p>That moment made me realize — some connections are destined. Our bond wasn't just random; it was written in the stars.</p>
         </div>
-
         <div id="story2">
             <h2>💫 About You, Uzma 💫</h2>
             <p>You've completed B.Tech in Computer Science, and now you're working — smart, independent, and unstoppable.</p>
@@ -181,21 +87,17 @@
             <p>Your beauty isn't just in your face, it's in the way your eyes speak — like they're carrying stories I want to listen to forever.</p>
             <p>You're rare, Uzma. And everything about you makes me feel lucky just to know you.</p>
         </div>
-
         <div class="buttons">
             <button onclick="propose()">💍 Propose</button>
             <button onclick="friendship()">🤝 Be Friend</button>
         </div>
-
         <div id="proposalMessage" class="message-box hidden"></div>
         <div id="responseButtons" class="buttons hidden">
             <button onclick="acceptProposal()">❤️ Accept</button>
             <button onclick="rejectProposal()">💔 Reject</button>
         </div>
-
         <div id="finalMessage" class="message-box hidden"></div>
     </div>
-
     <script>
         function propose() {
             const message = `
@@ -206,17 +108,12 @@ Your silence speaks louder than words, and I understand every pause.
 I don't just like you — I admire you, I respect you, and yes, I love you.
 With every moment, I wish to stand beside you — in happiness, in pain, in growth.
 I want to be your calm when life gets loud.
-I want to make you laugh when you want to cry.
-I want to understand your moods, respect your space, and celebrate your wins.
-I want to walk with you through life — not ahead or behind, but with you.
-You are not just someone I like, you are someone I want to cherish forever.
-So today, Uzma — I ask, will you be mine?
-Not just for today, but for always.`;
+Will you be mine?`;
             document.getElementById('proposalMessage').textContent = message;
             document.getElementById('proposalMessage').classList.remove('hidden');
             document.getElementById('responseButtons').classList.remove('hidden');
+            document.getElementById('finalMessage').classList.add('hidden');
         }
-
         function friendship() {
             const message = `
 Uzma, even if nothing more, I'm grateful to have known you.
@@ -237,23 +134,13 @@ You'll always have a friend in me — forever.`;
             document.getElementById('responseButtons').classList.add('hidden');
             document.getElementById('finalMessage').classList.add('hidden');
         }
-
         function acceptProposal() {
             const message = `
-You said yes, and my world just changed.
-From today, every heartbeat is yours.
-I promise to never leave your side.
-I will hold your hand through storms and sunshine.
-Your dreams will be mine to support and cherish.
-Your tears will be mine to wipe away.
-You are my choice — today, tomorrow, forever.
-I will love you in silence and in song.
-Together, we will write our story — one full of magic.
-I'm yours, Uzma. Always.`;
+Thank you, Uzma! You've made me the happiest person alive. Every day with you will be a dream come true. I will love you in silence and in song. Together, we will write our story — one full of magic. I'm yours, Uzma. Always.`;
             document.getElementById('finalMessage').textContent = message;
             document.getElementById('finalMessage').classList.remove('hidden');
+            document.getElementById('responseButtons').classList.add('hidden');
         }
-
         function rejectProposal() {
             const message = `
 And that's okay 💛
@@ -268,7 +155,8 @@ I'll carry this moment with warmth and pride.
 And yes — you will always be my friend, forever 💛`;
             document.getElementById('finalMessage').textContent = message;
             document.getElementById('finalMessage').classList.remove('hidden');
+            document.getElementById('responseButtons').classList.add('hidden');
         }
     </script>
 </body>
-</html>
+</html> 
