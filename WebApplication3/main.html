@@ -23,6 +23,12 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             text-align: center;
         }
+        img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
         h1 {
             color: #ff4081;
         }
@@ -30,11 +36,6 @@
             font-size: 1.1em;
             line-height: 1.8;
             color: #333;
-        }
-        img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
         }
         .buttons {
             display: flex;
@@ -77,8 +78,9 @@
         }
     </script>
     <div class="container">
-        <img src="wwwroot/images/WhatsApp Image 2025-05-02 at 08.31.58_55e37e50.jpg" alt="Uzma & Suhail">
+        <img src="https://image.shutterstock.com/image-photo/couples-hands-wedding-rings-260nw-2519052789.jpg" alt="Couple's Hands with Wedding Rings">
         <h1>💖 Uzma, This Is Just For You 💖</h1>
+
         <div id="story1">
             <h2>🌟 How We First Met 🌟</h2>
             <p>It all began with a voice — your voice, Uzma. A casual Clubhouse room turned into a magical 4-hour talk that made me feel like we knew each other forever.</p>
@@ -86,6 +88,7 @@
             <p>Then came the twist — you blocked me. It hurt. But just after two days, you reappeared with a new ID. I recognized your voice instantly. How could I not?</p>
             <p>That moment made me realize — some connections are destined. Our bond wasn't just random; it was written in the stars.</p>
         </div>
+
         <div id="story2">
             <h2>💫 About You, Uzma 💫</h2>
             <p>You've completed B.Tech in Computer Science, and now you're working — smart, independent, and unstoppable.</p>
@@ -93,76 +96,60 @@
             <p>Your beauty isn't just in your face, it's in the way your eyes speak — like they're carrying stories I want to listen to forever.</p>
             <p>You're rare, Uzma. And everything about you makes me feel lucky just to know you.</p>
         </div>
-        <div class="buttons">
+
+        <div class="buttons" style="margin: 30px 0; display: flex; justify-content: center; gap: 20px;">
             <button onclick="propose()">💍 Propose</button>
             <button onclick="friendship()">🤝 Be Friend</button>
         </div>
-        <div id="proposalMessage" class="message-box hidden"></div>
-        <div id="responseButtons" class="buttons hidden">
-            <button onclick="acceptProposal()">❤️ Accept</button>
-            <button onclick="rejectProposal()">💔 Reject</button>
+        <div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px;">
+            <img id="proposeImage" src="" alt="Proposal Visual" style="display:none; max-width:180px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+            <div style="flex:1;">
+                <div id="proposalMessage" class="message-box hidden"></div>
+                <div id="responseButtons" class="buttons hidden" style="justify-content: center; gap: 20px;">
+                    <button onclick="acceptProposal()">❤️ Accept</button>
+                    <button onclick="rejectProposal()">💔 Reject</button>
+                </div>
+                <div id="finalMessage" class="message-box hidden"></div>
+            </div>
         </div>
-        <div id="finalMessage" class="message-box hidden"></div>
-    </div>
-    <script>
-        function propose() {
-            const message = `
-Uzma, every day since we've spoken, you've lived in my thoughts.
-Your smile is etched in my mind like a favorite melody.
-I admire your strength, your spark, and your untold dreams.
-Your silence speaks louder than words, and I understand every pause.
-I don't just like you — I admire you, I respect you, and yes, I love you.
-With every moment, I wish to stand beside you — in happiness, in pain, in growth.
-I want to be your calm when life gets loud.
-Will you be mine?`;
-            document.getElementById('proposalMessage').textContent = message;
-            document.getElementById('proposalMessage').classList.remove('hidden');
-            document.getElementById('responseButtons').classList.remove('hidden');
-            document.getElementById('finalMessage').classList.add('hidden');
-        }
-        function friendship() {
-            const message = `
-Uzma, even if nothing more, I'm grateful to have known you.
-Our journey has been unique, unforgettable, and special.
-You are a gem — full of fire, love, and strength.
-I admire the way you carry yourself with grace and pride.
-From Clubhouse to chats, from laughs to silence — everything has meaning.
-And if being your friend is my destiny, I'll wear it proudly.
-I'll always be there — cheering you on quietly or walking beside you silently.
-In you, I found someone I can trust, respect, and support.
-Friendship is not less; it is powerful and pure.
-I'll remember your stories, your eyes, and the way you made me feel.
-You'll always be my favorite person, no matter what.
-Our bond is beyond labels.
-You'll always have a friend in me — forever.`;
-            document.getElementById('proposalMessage').textContent = message;
-            document.getElementById('proposalMessage').classList.remove('hidden');
-            document.getElementById('responseButtons').classList.add('hidden');
-            document.getElementById('finalMessage').classList.add('hidden');
-        }
-        function acceptProposal() {
-            const message = `
+        <script>
+            function propose() {
+                const message = `
+Uzma, every day since we've spoken, you've lived in my thoughts.\nYour smile is etched in my mind like a favorite melody.\nI admire your strength, your spark, and your untold dreams.\nYour silence speaks louder than words, and I understand every pause.\nI don't just like you — I admire you, I respect you, and yes, I love you.\nWith every moment, I wish to stand beside you — in happiness, in pain, in growth.\nI want to be your calm when life gets loud.\nWill you be mine?`;
+                document.getElementById('proposalMessage').textContent = message;
+                document.getElementById('proposalMessage').classList.remove('hidden');
+                document.getElementById('responseButtons').classList.remove('hidden');
+                document.getElementById('finalMessage').classList.add('hidden');
+                // Show the image on the left
+                const img = document.getElementById('proposeImage');
+                img.src = 'https://image.shutterstock.com/image-photo/gentle-hands-of-the-bride-with-a-beautiful-manicure-holding-a-boutonniere-with-flowers-1924937945.jpg';
+                img.style.display = 'block';
+            }
+            function friendship() {
+                const message = `
+Uzma, even if nothing more, I'm grateful to have known you.\nOur journey has been unique, unforgettable, and special.\nYou are a gem — full of fire, love, and strength.\nI admire the way you carry yourself with grace and pride.\nFrom Clubhouse to chats, from laughs to silence — everything has meaning.\nAnd if being your friend is my destiny, I'll wear it proudly.\nI'll always be there — cheering you on quietly or walking beside you silently.\nIn you, I found someone I can trust, respect, and support.\nFriendship is not less; it is powerful and pure.\nI'll remember your stories, your eyes, and the way you made me feel.\nYou'll always be my favorite person, no matter what.\nOur bond is beyond labels.\nYou'll always have a friend in me — forever.`;
+                document.getElementById('proposalMessage').textContent = message;
+                document.getElementById('proposalMessage').classList.remove('hidden');
+                document.getElementById('responseButtons').classList.add('hidden');
+                document.getElementById('finalMessage').classList.add('hidden');
+                // Hide the image
+                document.getElementById('proposeImage').style.display = 'none';
+            }
+            function acceptProposal() {
+                const message = `
 Thank you, Uzma! You've made me the happiest person alive. Every day with you will be a dream come true. I will love you in silence and in song. Together, we will write our story — one full of magic. I'm yours, Uzma. Always.`;
-            document.getElementById('finalMessage').textContent = message;
-            document.getElementById('finalMessage').classList.remove('hidden');
-            document.getElementById('responseButtons').classList.add('hidden');
-        }
-        function rejectProposal() {
-            const message = `
-And that's okay 💛
-You'll still always be someone very special to me.
-Our bond is rare, beautiful, and timeless.
-We may not be lovers, but we are forever connected.
-I still wish you every joy and every success.
-You'll always be the story I smile at.
-And whenever you need a friend, I'll be there — no questions asked.
-Thank you for being honest. Thank you for being you.
-I'll carry this moment with warmth and pride.
-And yes — you will always be my friend, forever 💛`;
-            document.getElementById('finalMessage').textContent = message;
-            document.getElementById('finalMessage').classList.remove('hidden');
-            document.getElementById('responseButtons').classList.add('hidden');
-        }
-    </script>
+                document.getElementById('finalMessage').textContent = message;
+                document.getElementById('finalMessage').classList.remove('hidden');
+                document.getElementById('responseButtons').classList.add('hidden');
+            }
+            function rejectProposal() {
+                const message = `
+And that's okay 💛\nYou'll still always be someone very special to me.\nOur bond is rare, beautiful, and timeless.\nWe may not be lovers, but we are forever connected.\nI still wish you every joy and every success.\nYou'll always be the story I smile at.\nAnd whenever you need a friend, I'll be there — no questions asked.\nThank you for being honest. Thank you for being you.\nI'll carry this moment with warmth and pride.\nAnd yes — you will always be my friend, forever 💛`;
+                document.getElementById('finalMessage').textContent = message;
+                document.getElementById('finalMessage').classList.remove('hidden');
+                document.getElementById('responseButtons').classList.add('hidden');
+            }
+        </script>
+    </div>
 </body>
 </html> 
